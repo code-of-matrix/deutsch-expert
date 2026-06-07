@@ -7,10 +7,10 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* ГЛОБАЛЬНЫЕ НАСТРОЙКИ (БЛАГОРОДНЫЙ ТЕМНО-СИНИЙ + АКЦЕНТЫ) */
+        /* ГЛОБАЛЬНЫЕ НАСТРОЙКИ (МЯГКИЙ БЛАГОРОДНЫЙ СИНИЙ) */
         * {
             margin: 0;
             padding: 0;
@@ -20,33 +20,33 @@
 
         body {
             background-color: #fdfdfd;
-            font-family: 'Montserrat', sans-serif;
+            font-family: 'Inter', sans-serif; /* Поменяли шрифт для всего обычного текста */
             color: #1a1a1a;
             line-height: 1.8;
             padding-top: 80px;
         }
 
         .container {
-            max-width: 1050px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
 
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Playfair Display', serif; /* Заголовки оставили нетронутыми */
         }
 
-        /* ЗАКРЕПЛЕННАЯ ШАПКА */
+        /* ЗАКРЕПЛЕННАЯ НАВЕРХУ ПАНЕЛЬ */
         .fixed-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 80px;
-            background-color: rgba(10, 25, 47, 0.98);
+            background-color: rgba(26, 43, 76, 0.98); /* Приглушенный синий в шапке */
             backdrop-filter: blur(10px);
             border-bottom: 4px solid #dd1b1b;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
             z-index: 9999;
             display: flex;
             align-items: center;
@@ -55,16 +55,16 @@
 
         .nav-menu {
             display: flex;
-            gap: 12px;
+            gap: 15px;
             list-style: none;
         }
 
         .nav-btn {
             display: inline-block;
-            padding: 10px 20px;
+            padding: 10px 24px;
             text-decoration: none;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 11px;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
@@ -72,15 +72,14 @@
             transition: all 0.3s ease;
         }
 
-        .btn-about, .btn-method, .btn-programs, .btn-reviews {
+        .btn-about, .btn-how, .btn-reviews {
             background-color: transparent;
             color: #ffffff;
             border: 1px solid rgba(255, 255, 255, 0.3);
         }
 
         .btn-about:hover { border-color: #ffcc00; color: #ffcc00; }
-        .btn-method:hover { border-color: #ffcc00; color: #ffcc00; }
-        .btn-programs:hover { border-color: #dd1b1b; color: #dd1b1b; }
+        .btn-how:hover { border-color: #dd1b1b; color: #dd1b1b; }
         .btn-reviews:hover { border-color: #ffcc00; color: #ffcc00; }
 
         .btn-cta {
@@ -96,11 +95,11 @@
             transform: translateY(-1px);
         }
 
-        /* ГЛАВНЫЙ ЭКРАН (ГЛУБОКИЙ ТЕМНО-СИНИЙ) */
+        /* ГЛАВНЫЙ ЭКРАН (ОБНОВЛЕННЫЙ МЯГКИЙ СИНИЙ ФОН) */
         .hero {
             padding: 130px 0;
             text-align: center;
-            background: linear-gradient(180deg, #0a192f 0%, #112240 100%); 
+            background: linear-gradient(180deg, #1a365d 0%, #2a4365 100%); /* Сделали фон светлее, мягче и приятнее */
             color: #ffffff;
             border-bottom: 8px solid #dd1b1b;
         }
@@ -109,14 +108,13 @@
             display: inline-block;
             padding: 8px 22px;
             background-color: #ffcc00;
-            color: #0a192f;
+            color: #1a365d;
             font-size: 13px;
             font-weight: 800;
             letter-spacing: 3px;
             text-transform: uppercase;
             border-radius: 4px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 15px rgba(255, 204, 0, 0.2);
         }
 
         .hero h1 {
@@ -136,129 +134,139 @@
         }
 
         .hero-description {
-            font-size: 1.2rem;
-            color: #d1d1d1;
+            font-size: 1.15rem;
+            color: #e2e8f0;
             max-width: 850px;
             margin: 0 auto 45px auto;
             font-weight: 400;
             line-height: 1.8;
         }
 
-        /* АНКЕРЫ ДЛЯ СКРОЛЛА */
         .section-scroll-anchor {
             position: relative;
             top: -40px;
         }
 
-        /* СЕКЦИЯ: ОБО МНЕ */
+        /* ДВУХКОЛОНОЧНЫЙ БЛОК: ОБО МНЕ */
         .about-section {
             padding: 100px 0;
             background-color: #fdfdfd;
         }
 
-        .name-title {
-            font-size: 2.8rem;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #0a192f;
-        }
-
-        .name-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #dd1b1b;
-            margin: 15px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        /* СЕКЦИЯ: МЕТОДИКА (4 СТОЛПА) */
-        .method-section {
-            padding: 100px 0;
-            background-color: #f7f7f7;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.6rem;
-            margin-bottom: 45px;
-            color: #0a192f;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 4px;
-            background-color: #ffcc00;
-            margin: 15px auto 0 auto;
-            border-radius: 2px;
-        }
-
-        .method-grid {
+        .about-split {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 50px;
+            gap: 50px;
+            align-items: start;
         }
 
-        @media (max-width: 768px) { .method-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) {
+            .about-split { grid-template-columns: 1fr; gap: 30px; }
+        }
 
-        .method-card {
-            background: #ffffff;
-            padding: 40px;
+        .photo-placeholder {
+            width: 100%;
+            height: 550px;
+            background-color: #f7fafc;
+            border: 2px dashed #1a365d;
             border-radius: 6px;
-            border: 1px solid #e0e0e0;
-            border-left: 6px solid #dd1b1b;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
-        }
-
-        .method-card h4 {
-            font-size: 1.4rem;
-            color: #0a192f;
-            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 10px;
+            justify-content: center;
+            color: #4a5568;
+            font-weight: 500;
         }
 
-        .method-card p {
-            font-size: 1.05rem;
-            color: #444444;
+        .name-title {
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            color: #1a365d;
+            text-align: left;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            color: #2d3748;
+            margin-bottom: 25px;
+            font-weight: 400;
             text-align: justify;
         }
 
-        /* БЛОК GOOGLE КЛАСС */
-        .storage-box {
-            background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
-            color: #ffffff;
-            padding: 45px;
-            border-radius: 8px;
-            border: 1px solid rgba(255,255,255,0.1);
-            border-top: 6px solid #ffcc00;
-            margin-top: 40px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        .story-text strong {
+            color: #dd1b1b;
+            font-weight: 600;
         }
 
-        .storage-box h4 {
+        /* ПРОГРАММЫ ОБУЧЕНИЯ */
+        .programs-section {
+            padding: 100px 0;
+            background-color: #f7fafc;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 8px solid #ffcc00;
+        }
+
+        .program-block {
+            margin-bottom: 50px;
+            background: #ffffff;
+            padding: 45px;
+            border-radius: 6px;
+            border-top: 5px solid #1a365d;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+        }
+
+        .program-block:last-child { margin-bottom: 0; }
+
+        .program-block h3 {
+            font-size: 1.8rem;
+            color: #1a365d;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #ffcc00;
+            padding-bottom: 10px;
+        }
+
+        .program-block p {
+            font-size: 1.1rem;
+            color: #2d3748;
+            text-align: justify;
+        }
+
+        .exam-tag {
+            margin-top: 20px;
+            font-weight: 600;
+            color: #dd1b1b;
+            font-size: 1rem;
+        }
+
+        /* МЕТОДИКА (КАК ПРОХОДИТ УРОК) */
+        .method-section {
+            padding: 100px 0;
+            background-color: #fdfdfd;
+        }
+
+        .method-item {
+            margin-bottom: 45px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #edf2f7;
+        }
+
+        .method-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+
+        .method-item h4 {
             font-size: 1.6rem;
-            color: #ffcc00;
+            color: #1a365d;
             margin-bottom: 15px;
         }
 
-        .storage-box p {
+        .method-item p {
             font-size: 1.1rem;
-            color: #e0e0e0;
-            line-height: 1.8;
+            color: #2d3748;
+            text-align: justify;
         }
 
-        /* Я УБИРАЮ ТО, ЧТО ВАМ МЕШАЕТ (ТЕМНО-СИНИЙ ФОН) */
+        /* Я УБИРАЮ ТО, ЧТО ВАМ МЕШАЕТ (ОБНОВЛЕННЫЙ СИНbackground) */
         .barriers-section {
             padding: 100px 0;
-            background: linear-gradient(180deg, #112240 0%, #0a192f 100%);
+            background: linear-gradient(180deg, #2a4365 0%, #1a365d 100%);
             color: #ffffff;
             border-bottom: 8px solid #ffcc00;
         }
@@ -271,182 +279,90 @@
         }
 
         .barrier-box {
-            max-width: 900px;
-            margin: 0 auto 30px auto;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 40px;
-            border-radius: 6px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 850px;
+            margin: 0 auto 40px auto;
             border-left: 6px solid #dd1b1b;
+            padding-left: 30px;
         }
 
         .barrier-box h4 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 15px;
             color: #ffcc00;
         }
 
         .barrier-box p {
             font-size: 1.1rem;
-            color: #d1d1d1;
+            color: #e2e8f0;
             text-align: justify;
         }
 
-        /* НАПРАВЛЕНИЯ ОБУЧЕНИЯ (ДЕТИ, СТУДЕНТЫ, ВЗРОСЛЫЕ) */
-        .programs-section {
-            padding: 100px 0;
-            background-color: #fdfdfd;
-        }
-
-        .grid-programs {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        @media (max-width: 992px) { .grid-programs { grid-template-columns: 1fr; } }
-
-        .program-card {
-            background: #ffffff;
-            padding: 45px 30px;
-            border-radius: 6px;
-            border: 1px solid #e0e0e0;
-            border-top: 6px solid #0a192f;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .program-card:hover {
-            transform: translateY(-5px);
-            border-top-color: #dd1b1b;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-        }
-
-        .program-card h3 {
-            font-size: 1.5rem;
-            color: #0a192f;
-            margin-bottom: 20px;
-        }
-
-        .program-card p {
-            font-size: 1.05rem;
-            color: #444444;
-            text-align: justify;
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-
-        .exam-list {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px dashed #ffcc00;
-            font-size: 0.9rem;
-            color: #555;
-        }
-
-        /* БЛОК СТОИМОСТИ (СТИЛИЗОВАН ПОД ТВОЮ ВИЗИТКУ) */
-        .price-section {
-            padding: 80px 0;
-            background-color: #f7f7f7;
-            text-align: center;
-            border-top: 1px solid #eee;
-            border-bottom: 4px solid #dd1b1b;
-        }
-
-        .price-card {
-            display: inline-block;
-            background: #ff66aa; /* Яркий, привлекающий внимание цвет как на макете */
-            background: linear-gradient(135deg, #ff5e97 0%, #e3266d 100%);
-            color: #ffffff;
-            padding: 40px 60px;
-            border-radius: 12px;
-            box-shadow: 0 15px 35px rgba(227, 38, 109, 0.3);
-            margin-top: 20px;
-        }
-
-        .price-value {
-            font-size: 4.5rem;
-            font-weight: 800;
-            line-height: 1;
-            margin-bottom: 5px;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .price-label {
-            font-size: 1.3rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* ГОРИЗОНТАЛЬНЫЙ СЛАЙДЕР ОТЗЫВОВ */
+        /* ЖИВЫЕ ОТЗЫВЫ */
         .reviews-section {
             padding: 100px 0;
-            background-color: #fdfdfd;
-            overflow: hidden;
+            background-color: #f7fafc;
         }
 
-        .reviews-slider {
-            display: flex;
-            gap: 25px;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            padding-bottom: 20px;
-            scrollbar-width: none;
-        }
-
-        .reviews-slider::-webkit-scrollbar { display: none; }
-
-        .review-card {
+        .letter-review {
+            max-width: 850px;
+            margin: 0 auto 60px auto;
             background: #ffffff;
-            padding: 35px;
+            padding: 50px;
             border-radius: 6px;
-            border: 1px solid #e0e0e0;
-            min-width: 450px;
-            scroll-snap-align: start;
-            display: flex;
-            flex-direction: column;
-            border-top: 5px solid #ffcc00;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.01);
+            border-left: 4px solid #ffcc00;
         }
 
-        @media (max-width: 768px) { .review-card { min-width: 290px; } }
-
-        .review-author { font-weight: 700; font-size: 1.2rem; color: #1a1a1a; margin-bottom: 5px; }
-        .review-badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 15px; }
-        .review-text { font-size: 0.98rem; color: #333333; font-style: italic; text-align: justify; }
-
-        .slider-arrow {
-            width: 50px; height: 50px; border-radius: 4px; border: 2px solid #0a192f;
-            background: #ffffff; cursor: pointer; transition: all 0.3s ease; font-size: 20px; font-weight: bold;
+        .letter-review:nth-child(even) {
+            border-left-color: #dd1b1b;
         }
-        .arrow-left { color: #ffcc00; border-color: #ffcc00; }
-        .arrow-left:hover { background: #ffcc00; color: #1a1a1a; }
-        .arrow-right { color: #dd1b1b; border-color: #dd1b1b; }
-        .arrow-right:hover { background: #dd1b1b; color: #ffffff; }
 
-        /* ФИНАЛЬНЫЙ ПРИЗЫВ */
+        .letter-review:last-child { margin-bottom: 0; }
+
+        .review-meta {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: #1a365d;
+            margin-bottom: 5px;
+        }
+
+        .review-type {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #718096;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .review-text {
+            font-size: 1.05rem;
+            color: #2d3748;
+            font-style: italic;
+            text-align: justify;
+            line-height: 1.8;
+        }
+
+        /* ФИНАЛЬНАЯ ЦИТАТА */
         .cta-section {
-            padding: 100px 0;
+            padding: 120px 0;
             text-align: center;
-            background-color: #f7f7f7;
-            border-top: 1px solid #eee;
+            background-color: #fdfdfd;
+            border-top: 1px solid #edf2f7;
         }
 
         .quote-text {
             font-family: 'Playfair Display', serif;
-            font-style: italic;
             font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-            color: #1a1a1a;
-            max-width: 900px;
-            margin: 0 auto 40px auto;
-            line-height: 1.6;
+            color: #1a365d;
+            max-width: 850px;
+            margin: 0 auto 50px auto;
+            line-height: 1.7;
+            font-weight: 600;
+            text-align: center;
         }
 
+        /* КНОПКА ЗАПИСИ */
         .main-btn {
             display: inline-block;
             padding: 22px 55px;
@@ -461,13 +377,19 @@
             box-shadow: 0 10px 30px rgba(221, 27, 27, 0.4);
             transition: all 0.3s ease;
         }
-        .main-btn:hover { background-color: #ffcc00; color: #1a1a1a; transform: translateY(-3px); box-shadow: 0 15px 35px rgba(255, 204, 0, 0.4); }
+
+        .main-btn:hover {
+            background-color: #ffcc00;
+            color: #1a1a1a;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 204, 0, 0.4);
+        }
 
         /* ПОДВАЛ */
         footer {
             padding: 45px 0;
             text-align: center;
-            background-color: #0a192f;
+            background-color: #1a365d;
             color: #ffffff;
             border-top: 4px solid #dd1b1b;
             font-size: 12px;
@@ -481,8 +403,7 @@
     <nav class="fixed-nav">
         <ul class="nav-menu">
             <li><a href="#about" class="nav-btn btn-about">Обо мне</a></li>
-            <li><a href="#method" class="nav-btn btn-method">Методика</a></li>
-            <li><a href="#programs" class="nav-btn btn-programs">Направления</a></li>
+            <li><a href="#how" class="nav-btn btn-how">Как проходит урок?</a></li>
             <li><a href="#reviews" class="nav-btn btn-reviews">Отзывы</a></li>
             <li><a href="#cta" class="nav-btn btn-cta">Записаться</a></li>
         </ul>
@@ -503,43 +424,69 @@
     <div id="about" class="section-scroll-anchor"></div>
     <section class="about-section">
         <div class="container">
-            <h2 class="name-title">Меня зовут Артур</h2>
-            <div class="story-text" style="font-size: 1.15rem; text-align: justify;">
-                <p style="margin-bottom: 25px;">Если вам кажется, что немецкий язык — это вечное напряжение, бесконечные механические правила и страх перед строгим учителем... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
-                <p style="margin-bottom: 25px;">Я отлично помню, как пытался самостоятельно разобраться в немецкой грамматике, постоянно путался в артиклях и спотыкался на сложных словах. Мне казалось, что этот язык дается только избранным людям с врожденным талантом.</p>
-                <p style="margin-bottom: 25px;">Но именно этот личный путь помог мне понять главное: <strong>проблема никогда не кроется в ученике. Всё зависит исключительно от того, как именно вам преподносят язык.</strong> Как только я полностью перестроил свой личный подход и убрал внутренний стресс, языковой барьер исчез.</p>
-                <p>Сегодня я <strong>профессионально преподаю немецкий язык более 5 лет</strong>, а также свободно владею еще четырьмя языками: русским, украинским, английским и испанским. Параллельно я получил психологическое образование, что помогает мне видеть процесс обучения глубже. Я точно знаю, как бережно и эффективно провести по этой дороге вас, вашего ребенка или студента.</p>
+            <div class="about-split">
+                <div class="photo-placeholder">
+                    <span>Место для вашего фото</span>
+                </div>
+                
+                <div class="story-text">
+                    <h2 class="name-title">Меня зовут Артур</h2>
+                    <p>Если вам кажется, что немецкий язык — это вечное напряжение, бесконечные механические правила и страх перед строгим учителем... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
+                    <p>Я отлично помню, как пытался самостоятельно разобраться в немецкой грамматике, постоянно путался в артиклях и спотыкался на сложных словах. Мне казалось, что этот язык дается только избранным людям с врожденным талантом.</p>
+                    <p>Но именно этот личный путь помог мне понять главное: <strong>проблема никогда не кроется в ученике. Всё зависит исключительно от того, как именно вам преподносят язык.</strong> Как только я полностью перестроил свой личный подход и убрал внутренний стресс, языковой барьер исчез, а язык раскрылся сам собой.</p>
+                    <p>Сегодня я <strong>профессионально преподаю немецкий язык более 5 лет</strong>, а также свободно владею еще четырьмя языками: русским, украинским, английским и испанским. Параллельно я получил психологическое образование, что помогает мне видеть процесс обучения глубже. Я точно знаю, как бережно и эффективно провести по этой дороге вас, вашего ребенка или студента.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <div id="method" class="section-scroll-anchor"></div>
-    <section class="method-section">
+    <section class="programs-section">
         <div class="container">
-            <h2 class="section-title">Мой индивидуальный метод</h2>
+            <h2 style="text-align: center; font-size: 2.6rem; margin-bottom: 50px; color: #1a365d;">Программы обучения</h2>
             
-            <div class="method-grid">
-                <div class="method-card">
-                    <h4>🗣️ Упор на говорение</h4>
-                    <p>Мы выводим язык в активную речь с самых первых занятий. Никаких заученных мертвых диалогов — я учу вас выражать собственные мысли, шутить, спорить и уверенно общаться на живом, актуальном немецком языке, полностью разрушая страх говорить.</p>
-                </div>
-                <div class="method-card">
-                    <h4>🧩 Понятная грамматика</h4>
-                    <p>Я принципиально не использую заумные академические термины и сухие таблицы. Я раскладываю любое, даже самое тяжелое правило немецкого языка буквально на пальцах, переводя его на простой человеческий язык и объясняя через логичные жизненные примеры.</p>
-                </div>
-                <div class="method-card">
-                    <h4>📚 Чтение по интересам</h4>
-                    <p>Забудьте про скучные тексты об абстрактных вещах. Для каждого человека я подбираю индивидуальные текстовые материалы строго по его личным интересам, сфере деятельности или хобби. Процесс чтения становится по-настоящему увлекательным.</p>
-                </div>
-                <div class="method-card">
-                    <h4>🎧 Развитие слушания</h4>
-                    <p>Я тренирую ваше восприятие немецкой речи на слух, используя реальные аудиоматериалы, подкасты и живую речь. Вы научитесь не просто слушать фоном, а детально понимать структуру, улавливать акценты, распознавать контекст и уверенно обходить любые ловушки в тестовых заданиях.</p>
-                </div>
+            <div class="program-block">
+                <h3>Для детей и школьников</h3>
+                <p>Профессиональный подход, направленный на бережное снятие школьного стресса. Я помогаю детям избавиться от страха перед плохими оценками, строгими учителями и сложной грамматикой. Мы убираем слезы и скуку: ваш ребенок искренне полюбит немецкий язык, начнет понимать его логику и заговорит спокойно и уверенно. Также провожу целенаправленную подготовку к школьным экзаменам и успешной сдаче престижных международных языковых сертификатов для подростков.</p>
+                <div class="exam-tag">Экзамены: Школьные тесты, зачеты, Goethe Fit in Deutsch (A1–B2).</div>
             </div>
 
-            <div class="storage-box">
-                <h4>💼 Ваш персональный архив в Google Классе</h4>
-                <p>После каждого урока все пройденные интерактивные презентации, индивидуальные тексты, аудиоматериалы и домашние задания бережно сохраняются в вашей <strong>личной папке в Google Классе</strong>. Вы получаете круглосуточный доступ к материалам 24/7. В любой момент времени с телефона или компьютера вы можете зайти в систему, пересмотреть урок, освежить память и зафиксировать свой прогресс.</p>
+            <div class="program-block">
+                <h3>Для студентов</h3>
+                <p>Профессиональная и интенсивная подготовка с учетом высоких академических требований. Я помогаю студентам быстро разобраться со сложными грамматическими пластами, эффективно подготовиться к сдаче зачетов, сессий и внутренних вузовских экзаменов, а также к поступлению в университеты, колледжи и штудиенколлеги Германии и Австрии. Вычищаем кашу в голове и выстраиваем логику.</p>
+                <div class="exam-tag">Экзамены: Академические зачеты, сессии, DSD, TestDaF, вступительные испытания.</div>
+            </div>
+
+            <div class="program-block">
+                <h3>Для взрослых</h3>
+                <p>Эффективные программы для реализации ваших конкретных целей без хаоса и унылых шаблонов. Будь то подготовка к переезду в Германию или Австрию, успешное прохождение профессиональных собеседований или полная адаптация в новой среде — вы получите глубокие знания и начнете общаться свободно, чувствуя себя своим среди носителей. Я осуществляю системную и результативную подготовку взрослых к сдаче любых официальных экзаменов для работы, учебы и получения ПМЖ.</p>
+                <div class="exam-tag">Экзамены: Официальные тесты для визы и работы, Goethe-Zertifikat, ÖSD (от A1 до C2).</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="how" class="section-scroll-anchor"></div>
+    <section class="method-section">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.6rem; margin-bottom: 50px; color: #1a365d;">Как проходит урок?</h2>
+            
+            <div class="method-item">
+                <h4>Упор на живое говорение и аудирование</h4>
+                <p>Мы выводим язык в активную речь с первых минут занятия. Никаких мертвых текстов под копирку. Параллельно я тренирую ваше восприятие немецкой речи на слух через реальные аудиоматериалы и подкасты. Вы учитесь улавливать контекст, понимать акценты и уверенно общаться, полностью разрушая страх говорить.</p>
+            </div>
+
+            <div class="method-item">
+                <h4>Понятная грамматика на пальцах</h4>
+                <p>Я принципиально не использую заумные академические термины. Я раскладываю любое, даже самое тяжелое правило немецкого языка буквально на пальцах, переводя его на простой человеческий язык и объясняя на понятных жизненных примерах. Если тема дается тяжело — я буду подбирать новые подходы, менять ракурсы и объяснять столько раз, сколько нужно для идеального усвоения.</p>
+            </div>
+
+            <div class="method-item">
+                <h4>Индивидуальные тексты по вашим интересам</h4>
+                <p>Забудьте про скучные топики из старых учебников. Для каждого человека я подбираю уникальные текстовые материалы строго по его личным интересам, хобби или сфере деятельности. Процесс чтения становится по-настоящему захватывающим.</p>
+            </div>
+
+            <div class="method-item">
+                <h4>Персональный архив в Google Классе</h4>
+                <p>После урока все пройденные презентации, тексты, аудио и задания бережно сохраняются в вашей личной папке в Google Классе. У вас открыт доступ к материалам 24/7. В любой момент вы можете зайти с телефона или компьютера, чтобы пересмотреть тему и освежить память.</p>
             </div>
         </div>
     </section>
@@ -549,69 +496,18 @@
             <h2>Я убираю то, что вам мешает</h2>
             
             <div class="barrier-box">
-                <h4>1. Разговорный барьер и страх чистого листа</h4>
-                <p>Знакома ситуация, когда вы всё прекрасно понимаете, можете перевести текст, но в момент реального общения в голове возникает пустота и оцепенение? Я эффективно помогаю справиться с этой проблемой на первых уроках, мягко переводя ваши пассивные знания в уверенную живую речь.</p>
+                <h4>1. Разговорный барьер и страх заговорить</h4>
+                <p>Знакома ситуация, когда вы всё прекрасно понимаете, можете перевести текст, но в момент реального ответа в голове возникает оцепенение и пустота? Я успешно помогаю справиться с этой проблемой на первых же занятиях, бережно переводя ваши пассивные знания в уверенную живую речь.</p>
             </div>
             
             <div class="barrier-box">
                 <h4>2. Страх совершить ошибку и показаться глупым</h4>
-                <p>Боязнь перепутать артикль, неправильно употребить падеж или сказать что-то с неидеальным произношением заставляет людей молчать годами. Я создаю на уроках пространство абсолютной психологической безопасности, где вы расслабляетесь и начинаете говорить свободно.</p>
+                <p>Боязнь перепутать артикль, падеж или сказать фразу с неидеальным произношением заставляет людей молчать годами. Я создаю на уроках пространство абсолютной безопасности, где вы полностью расслабляетесь и наконец-то начинаете говорить свободно.</p>
             </div>
 
             <div class="barrier-box">
                 <h4>3. Каша в голове и хаос в грамматике</h4>
-                <p>Когда вы пытаетесь учить язык хаотично, правила путаются, а структура языка кажется сложным лабиринтом. Я вычищаю этот хаос. Мы берем все разрозненные знания, убираем лишний информационный шум и выстраиваем четкую, понятную и монолитную систему.</p>
-            </div>
-        </div>
-    </section>
-
-    <div id="programs" class="section-scroll-anchor"></div>
-    <section class="programs-section">
-        <div class="container">
-            <h2 class="section-title">С кем я работаю</h2>
-            
-            <div class="grid-programs">
-                <div class="program-card">
-                    <div>
-                        <h3>Для детей и школьников</h3>
-                        <p>Я использую бережный, поддерживающий подход, направленный на полное снятие школьного стресса. Помогаю ребенку искренне полюбить немецкий язык, понять его внутреннюю логику и навсегда забыть о слезах и скуке над домашними заданиями. Результат — уверенность у доски и отличные оценки без давления.</p>
-                    </div>
-                    <div class="exam-list">
-                        <strong>Цели и тесты:</strong> Повышение успеваемости, школьные экзамены, Goethe Fit in Deutsch (A1–B2).
-                    </div>
-                </div>
-
-                <div class="program-card">
-                    <div>
-                        <h3>Для студентов</h3>
-                        <p>Профессиональная и интенсивная подготовка с учетом высоких академических требований. Я помогаю студентам быстро разобраться со сложными грамматическими пластами, эффективно подготовиться к сдаче зачетов, сессий и внутренних вузовских экзаменов, а также к поступлению в университеты и колледжи Германии и Австрии.</p>
-                    </div>
-                    <div class="exam-list">
-                        <strong>Цели и тесты:</strong> Академические зачеты, DSD, TestDaF, подготовка к профильным вступительным испытаниям.
-                    </div>
-                </div>
-
-                <div class="program-card">
-                    <div>
-                        <h3>Для взрослых</h3>
-                        <p>Четко структурированные программы, созданные строго под ваши практические жизненные задачи. Будь то переезд на ПМЖ, прохождение собеседований в международные компании, ведение бизнеса или адаптация в языковой среде. Мы учим живой язык для реальной жизни, работы и комфортной интеграции.</p>
-                    </div>
-                    <div class="exam-list">
-                        <strong>Цели и тесты:</strong> Сдача на любой уровень для визы и работы, Goethe-Zertifikat, ÖSD (от A1 до C2).
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="price-section">
-        <div class="container">
-            <h2 style="font-size: 2.2rem; color: #0a192f; margin-bottom: 10px;">Прозрачная и честная стоимость</h2>
-            <p style="font-size: 1.1rem; color: #555;">Без скрытых платежей, долгосрочных контрактов и переплат за платформы.</p>
-            
-            <div class="price-card">
-                <div class="price-value">14 €</div>
-                <div class="price-label">за индивидуальный урок</div>
+                <p>Когда вы учите язык хаотично, правила путаются, а структура кажется лабиринтом. Я вычищаю этот хаос. Мы берем все ваши разрозненные знания, убираем лишний информационный шум и выстраиваем четкую, понятную и монолитную систему.</p>
             </div>
         </div>
     </section>
@@ -619,40 +515,38 @@
     <div id="reviews" class="section-scroll-anchor"></div>
     <section class="reviews-section">
         <div class="container">
-            <h2 class="section-title">Отзывы учеников и родителей</h2>
+            <h2 style="text-align: center; font-size: 2.6rem; margin-bottom: 50px; color: #1a365d;">Отзывы учеников и родителей</h2>
             
-            <div class="reviews-slider" id="slider">
-                <div class="review-card">
-                    <div class="review-author">Марина</div>
-                    <div class="review-badge" style="color: #b89300;">Отзыв мамы</div>
-                    <div class="review-text">«До Артура мы сменили две крупные онлайн-платформы. Обещали индивидуальный подход, а на деле — стандартные уроки под копирку, где сыну было откровенно скучно. К Артуру шли с опаской, но он перевернул всё. Никаких шаблонов, он сразу нашел личный контакт. Сын перестал бояться немецкого, оценки выросли до пятерки, а главное — занимается с удовольствием».</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-author">Елена</div>
-                    <div class="review-badge" style="color: #b89300;">Отзыв мамы</div>
-                    <div class="review-text">«Хочу сказать спасибо Артуру за его чуткий подход. Моя Катя безумно стеснительная, в школе на уроках немецкого всегда молчала и замыкалась от любого строгого взгляда. Артур смог создать такую дружескую атмосферу на занятиях, что она заговорила без всякого страха. Теперь спокойно исправляет мои ошибки в немецком!»</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-author">Игорь</div>
-                    <div class="review-badge" style="color: #dd1b1b;">Ученик (IT-специалист)</div>
-                    <div class="review-text">«Я IT-специалист, пробовал учиться на раскрученной платформе. Вроде всё понимал, но когда доходило до созвонов с немецкими коллегами в Берлине — в голове включался белый шум. Только индивидуальная работа с Артуром помогла разбить этот барьер. Его метод снятия страха — это мощь. Сейчас спокойно общаюсь по работе».</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-author">Кристина</div>
-                    <div class="review-badge" style="color: #dd1b1b;">Ученица (Врач)</div>
-                    <div class="review-text">«Наконец-то я начала говорить свободно! Раньше немецкий казался мне грубым и тяжелым, но Артур показал его живую логику и красоту. Уроки пролетают незаметно, уходит усталость после работы. Поймала себя на мысли, что на приеме уже автоматически формулирую диагнозы в голове на немецком».</div>
-                </div>
-                <div class="review-card">
-                    <div class="review-author">Ольга</div>
-                    <div class="review-badge" style="color: #b89300;">Отзыв мамы</div>
-                    <div class="review-text">«Артур — спаситель нашей нервной системы. Слезы и крики над домашними заданиями были каждый вечер. Артур как-то так легко объяснил сыну грамматику, что он сам во всем разобрался. Ребенок больше не закрывается в комнате, когда нужно делать домашку по немецкому. Для нашей семьи это огромная победа».</div>
-                </div>
+            <div class="letter-review">
+                <div class="review-meta">Марина</div>
+                <div class="review-type">Отзыв мамы</div>
+                <div class="review-text">«До Артура мы сменили две крупные онлайн-платформы. Обещали индивидуальный подход, а на деле — стандартные уроки под копирку, где сыну было откровенно скучно и он сидел для галочки. К Артуру шли с опаской, но этот человек перевернул всё. Никаких шаблонов, он сразу нашел личный контакт. Сын перестал бояться немецкого, оценки выросли до пятерки, а главное — он занимается с искренним удовольствием».</div>
+            </div>
+
+            <div class="letter-review">
+                <div class="review-meta">Елена</div>
+                <div class="review-type">Отзыв мамы</div>
+                <div class="review-text">«Огромное спасибо за такой чуткий подход к Кате! Дочка очень стеснительная, в школе на уроках немецкого всегда молчала и замыкалась от любого строгого взгляда. Артур смог создать такую дружескую и теплую атмосферу на занятиях, что она заговорила без всякого страха. Теперь спокойно исправляет ошибки в моих немецких фразах, когда мы вместе смотрим фильмы!»</div>
+            </div>
+
+            <div class="letter-review">
+                <div class="review-author">Игорь</div>
+                <div class="review-type">Ученик (IT-специалист)</div>
+                <div class="review-text">«Я IT-специалист, пробовал учиться на раскрученной платформе. Вроде всё понимал, но когда доходило до созвонов с немецкими коллегами в Берлине — в голове включался белый шум. Курсы эту проблему не решают. Только индивидуальная работа с Артуром помогла разбить этот барьер. Его метод снятия страха — это мощь. Сейчас спокойно общаюсь по работе».</div>
+            </div>
+
+            <div class="letter-review">
+                <div class="review-author">Кристина</div>
+                <div class="review-type">Ученица (Врач)</div>
+                <div class="review-text">«Наконец-то я начала говорить свободно! Раньше немецкий казался мне грубым и тяжелым, но Артур показал его живую логику и красоту. Уроки пролетают незаметно, уходит усталость после работы. Поймала себя на мысли, что на приеме уже автоматически формулирую диагнозы в голове на немецком».</div>
+            </div>
+
+            <div class="letter-review">
+                <div class="review-meta">Ольга</div>
+                <div class="review-type">Отзыв мамы</div>
+                <div class="review-text">«Артур — спаситель нашей нервной системы. Слезы и крики над домашними заданиями были каждый вечер. Артур как-то так легко объяснил сыну грамматику, что он сам во всем разобрался. Ребенок больше не закрывается в комнате, когда нужно делать домашку по немецкому. Для нашей семьи это огромная победа».</div>
             </div>
             
-            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 30px;">
-                <button class="slider-arrow arrow-left" onclick="scrollSlider(-1)">←</button>
-                <button class="slider-arrow arrow-right" onclick="scrollSlider(1)">→</button>
-            </div>
         </div>
     </section>
 
@@ -660,9 +554,9 @@
     <section class="cta-section">
         <div class="container">
             <div class="quote-text">
-                «Сделайте первый шаг к уверенному немецкому! Напишите мне в личные сообщения, чтобы записаться на первое индивидуальное занятие и составить ваш пошаговый план обучения».
+                «Моя цель — не заставить вас выучить параграф. Моя цель — сделать так, чтобы вы или ваш ребенок искренне влюбились в немецкий язык, начали общаться на нём легко и уверенно, и получали от этого настоящее удовольствие».
             </div>
-            <a href="#" class="main-btn">Записаться на урок</a>
+            <a href="#" class="main-btn">Записаться на пробный урок</a>
         </div>
     </section>
 
@@ -671,14 +565,6 @@
             &copy; 2026 DEUTSCH EXPERT | АРТУР | <span>SCHWARZ • ROT • GOLD</span>
         </div>
     </footer>
-
-    <script>
-        function scrollSlider(direction) {
-            const slider = document.getElementById('slider');
-            const scrollAmount = 475; // 450px ширина карточки + 25px gap
-            slider.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
-        }
-    </script>
 
 </body>
 </html>
