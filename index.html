@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* ГЛОБАЛЬНЫЕ НАСТРОЙКИ */
+        /* ГЛОБАЛЬНЫЕ НАСТРОЙКИ (НЕМЕЦКАЯ СТИЛИСТИКА) */
         * {
             margin: 0;
             padding: 0;
@@ -19,9 +19,9 @@
         }
 
         body {
-            background-color: #fcfaf7; /* Светлый уютный фон */
+            background-color: #fdfdfd; /* Чистый, светлый фон */
             font-family: 'Montserrat', sans-serif;
-            color: #2c2c2c;
+            color: #1a1a1a; /* Глубокий чёрный для текста */
             line-height: 1.8;
             padding-top: 80px;
         }
@@ -44,9 +44,10 @@
             left: 0;
             width: 100%;
             height: 80px;
-            background-color: rgba(252, 250, 247, 0.95);
+            background-color: rgba(253, 253, 253, 0.95);
             backdrop-filter: blur(10px);
-            box-shadow: 0 2px 20px rgba(74, 63, 53, 0.08);
+            border-bottom: 3px solid #dd1b1b; /* Немецкий красный акцент */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
             z-index: 9999;
             display: flex;
             align-items: center;
@@ -68,62 +69,52 @@
             font-weight: 600;
             letter-spacing: 1px;
             text-transform: uppercase;
-            border-radius: 6px;
+            border-radius: 4px;
             transition: all 0.3s ease;
         }
 
-        .btn-about {
+        .btn-about, .btn-how {
             background-color: transparent;
-            color: #4a4a4a;
-            border: 1px solid #e0d9d0;
-        }
-
-        .btn-about:hover {
-            background-color: #e8dfd5;
             color: #1a1a1a;
+            border: 1px solid #1a1a1a;
         }
 
-        .btn-how {
-            background-color: transparent;
-            color: #4a4a4a;
-            border: 1px solid #e0d9d0;
-        }
-
-        .btn-how:hover {
-            background-color: #e8dfd5;
-            color: #1a1a1a;
+        .btn-about:hover, .btn-how:hover {
+            background-color: #1a1a1a;
+            color: #ffffff;
         }
 
         .btn-cta {
-            background-color: #2c2c2c;
+            background-color: #dd1b1b; /* Немецкий красный */
             color: #ffffff;
-            border: 1px solid #2c2c2c;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            border: 1px solid #dd1b1b;
+            box-shadow: 0 4px 12px rgba(221, 27, 27, 0.2);
         }
 
         .btn-cta:hover {
-            background-color: #bc9c6e;
-            border-color: #bc9c6e;
+            background-color: #b01212;
+            border-color: #b01212;
             transform: translateY(-1px);
         }
 
         /* ГЛАВНЫЙ ЭКРАН */
         .hero {
-            padding: 100px 0 80px 0;
+            padding: 120px 0 90px 0;
             text-align: center;
-            background: linear-gradient(180deg, #f3ede6 0%, #fcfaf7 100%);
+            background: linear-gradient(180deg, #f7f7f7 0%, #fdfdfd 100%);
+            border-bottom: 1px solid #eeeeee;
         }
 
         .brand-badge {
             display: inline-block;
-            padding: 8px 20px;
-            background-color: #e8dfd5;
-            color: #4a3f35;
-            font-size: 13px;
+            padding: 6px 18px;
+            background-color: #1a1a1a;
+            color: #ffcc00; /* Немецкий золотой/желтый */
+            font-size: 12px;
             font-weight: 600;
-            letter-spacing: 4px;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            border-radius: 50px;
+            border-radius: 2px;
             margin-bottom: 25px;
         }
 
@@ -136,7 +127,7 @@
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: #5a5a5a;
+            color: #444444;
             max-width: 800px;
             margin: 0 auto;
             font-weight: 400;
@@ -156,25 +147,37 @@
             font-size: 2.6rem;
             margin-bottom: 40px;
             text-align: center;
+            position: relative;
+        }
+
+        .name-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #dd1b1b;
+            margin: 15px auto 0 auto;
         }
 
         .story-text p {
             font-size: 1.15rem;
-            color: #3d3d3d;
+            color: #2c2c2c;
             margin-bottom: 25px;
             font-weight: 400;
             text-align: justify;
         }
 
         .story-text strong {
-            color: #1a1a1a;
+            color: #dd1b1b; /* Выделение немецкого языка красным */
             font-weight: 600;
         }
 
         /* ПРОГРАММЫ ОБУЧЕНИЯ */
         .programs-section {
             padding: 100px 0;
-            background-color: #f5f0e9;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
 
         .grid-programs {
@@ -189,28 +192,29 @@
         .program-card {
             background: #ffffff;
             padding: 45px 40px;
-            border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(74, 63, 53, 0.04);
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            border-top: 4px solid #ffcc00; /* Золотой/желтый акцент сверху */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
         }
 
         .program-card h3 {
             font-size: 1.6rem;
             color: #1a1a1a;
             margin-bottom: 20px;
-            border-bottom: 2px solid #bc9c6e;
             padding-bottom: 10px;
         }
 
         .exam-list {
             margin-top: 15px;
             padding-top: 15px;
-            border-top: 1px dashed #e0d9d0;
+            border-top: 1px dashed #e0e0e0;
             font-size: 0.95rem;
-            color: #666;
+            color: #555;
         }
 
         .exam-list strong {
-            color: #bc9c6e;
+            color: #dd1b1b;
         }
 
         /* ПОДХОД К ОБУЧЕНИЮ */
@@ -223,7 +227,7 @@
             max-width: 850px;
             margin: 0 auto 60px auto;
             font-size: 1.2rem;
-            color: #4a4a4a;
+            color: #333333;
         }
 
         .features-grid {
@@ -235,9 +239,10 @@
         .feature-box {
             padding: 45px;
             background: #ffffff;
-            border-radius: 12px;
-            border-left: 6px solid #bc9c6e;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.02);
+            border-radius: 4px;
+            border: 1px solid #eab6b6;
+            border-left: 6px solid #dd1b1b; /* Красный немецкий акцент слева */
+            box-shadow: 0 6px 25px rgba(0,0,0,0.01);
         }
 
         .feature-box h4 {
@@ -248,14 +253,16 @@
 
         .feature-box p {
             font-size: 1.1rem;
-            color: #444444;
+            color: #2c2c2c;
             text-align: justify;
         }
 
         /* БЛОК УБИРАЕМ МЕШАЮЩЕЕ */
         .barriers-section {
             padding: 100px 0;
-            background-color: #fdfcfb;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
 
         .barrier-box {
@@ -263,8 +270,9 @@
             margin: 0 auto 30px auto;
             background: #ffffff;
             padding: 35px 40px;
-            border-radius: 12px;
-            border-left: 5px solid #2c2c2c;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+            border-left: 5px solid #1a1a1a; /* Черный строгий акцент */
             box-shadow: 0 5px 15px rgba(0,0,0,0.01);
         }
 
@@ -277,7 +285,7 @@
         .cta-section {
             padding: 120px 0;
             text-align: center;
-            background: linear-gradient(180deg, #fcfaf7 0%, #f3ede6 100%);
+            background: linear-gradient(180deg, #fdfdfd 0%, #f7f7f7 100%);
         }
 
         .quote-text {
@@ -293,7 +301,7 @@
         .main-btn {
             display: inline-block;
             padding: 22px 50px;
-            background-color: #2c2c2c;
+            background-color: #dd1b1b; /* Немецкий красный */
             color: #ffffff;
             text-decoration: none;
             font-weight: 600;
@@ -301,23 +309,24 @@
             text-transform: uppercase;
             font-size: 13px;
             border-radius: 4px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(221, 27, 27, 0.25);
             transition: all 0.3s ease;
         }
 
         .main-btn:hover {
-            background-color: #bc9c6e;
+            background-color: #b01212;
             transform: translateY(-2px);
-            box-shadow: 0 15px 30px rgba(188, 156, 110, 0.3);
+            box-shadow: 0 15px 30px rgba(176, 18, 18, 0.35);
         }
 
         footer {
             padding: 40px 0;
             text-align: center;
-            background-color: #2c2c2c;
-            color: #a0a0a0;
+            background-color: #1a1a1a; /* Строгий черный подвал */
+            color: #ffcc00; /* Золотой текст в подвале */
             font-size: 11px;
             letter-spacing: 2px;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -346,7 +355,7 @@
             <div class="story-text">
                 <p>Если вам кажется, что немецкий язык — это скучно, зубрежка и вечное напряжение перед каждым занятием... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
                 
-                <p>Я отлично помню, как пытался разобраться в немецкой грамматике, постоянно путался в артиклях и спотыкался на длинных, сложных словах. Было ощущение, что я стою перед глухой стеной, которую просто невозможно пробить. Мне казалось, что этот язык дается только каким-то «избранным» людям с особым талантом.</p>
+                <p>Я отлично помню, как пытался разобраться в немецкой грамматике, постоянно путался in артиклях и спотыкался на длинных, сложных словах. Было ощущение, что я стою перед глухой стеной, которую просто невозможно пробить. Мне казалось, что этот язык дается только каким-то «избранным» людям с особым талантом.</p>
                 
                 <p>Но именно этот личный опыт помог мне понять главную вещь: <strong>проблема не в вас и не в сложности самого языка. Всё зависит только от того, как именно вам его преподносят.</strong> Как только я перестроил свой подход и убрал это внутреннее напряжение, барьер исчез, а язык раскрылся сам собой.</p>
                 
@@ -357,11 +366,11 @@
 
     <section class="programs-section">
         <div class="container">
-            <h2 style="text-align: center; font-size: 2.4rem;">Программы обучения</h2>
+            <h2 style="text-align: center; font-size: 2.4rem; position: relative; margin-bottom: 45px;">Программы обучения</h2>
             <div class="grid-programs">
                 <div class="program-card">
                     <h3>Для детей и школьников</h3>
-                    <p>Бережный и теплый подход, направленный на то, чтобы полностью избавить ребенка от страха перед школьными уроками. Я помогаю детям забыть о стрессе из-за плохих оценок, строгих учителей или запутанных правил. Мы навсегда убираем слезы и скуку. Ваш ребенок искренне полюбит немецкий язык, начнет понимать его логику и заговорит спокойно, свободно и с удовольствием. Помимо этого, я помогаю школьникам уверенно подготовиться к сдаче самых востребованных экзаменов.</p>
+                    <p>Бережный и теплый подход, направленный на то, чтобы полностью избавить ребенка от страха перед школьными уроками. Я помогаю детям забыть о стрессе из-за плохих оценок, строгими учителями или запутанных правил. Мы навсегда убираем слезы и скуку. Ваш ребенок искренне полюбит немецкий язык, начнет понимать его логику и заговорит спокойно, свободно и с удовольствием. Помимо этого, я помогаю школьникам уверенно подготовиться к сдаче самых востребованных экзаменов.</p>
                     <div class="exam-list">
                         <strong>Подготовка к экзаменам:</strong> Школьные тесты, Goethe-Zertifikat (Fit in Deutsch).
                     </div>
@@ -387,13 +396,13 @@
             
             <div class="features-grid">
                 <div class="feature-box">
-                    <h4>1. Понимание особенностей каждого ученика</h4>
-                    <p>Каждый человек воспринимает мир по-своему. Я с первых минут чувствую, как именно вам или вашему ребенку комфортнее и легче усваивать информацию, и полностью адаптирую программу под ваш темп и склад мышления. Я не использую чужие шаблоны, я создаю условия, при которых сложные немецкие правила ложатся на подсознание сами собой, естественно и без изнуряющей зубрежки.</p>
+                    <h4>1. Гибкий подход к обучению вместо жестких рамок</h4>
+                    <p>У каждого человека свой темп и свои особенности мышления: кому-то легче воспринимать информацию через наглядные схемы, а кому-то — через живой диалог и ассоциации. Я полностью подстраиваю формат занятий под индивидуальные особенности вашей памяти и скорость усвоения материала. Я не использую чужие шаблоны, я создаю условия, при которых сложные немецкие правила ложатся на подсознание сами собой, естественно и без изнуряющей зубрежки.</p>
                 </div>
                 
                 <div class="feature-box">
                     <h4>2. Живой язык и понятная грамматика на пальцах</h4>
-                    <p>Немецкая грамматика — это не хаос, а очень логичная и красивая система. Но в учебниках ее часто описывают так сложно, что книгу хочется закрыть навсегда. Я принципиально не использую заумные академические термины, которые только запутывают. Я раскладываю любое, даже самое тяжелое правило буквально на пальцах, переводю его на простой человеческий язык и объясняю на понятных жизненных примерах. Вы начнете видеть логику языка, а не просто заучивать мертвые тексты.</p>
+                    <p>Немецкая грамматика — это не хаос, а очень логичная и красивая система. Но в учебниках ее часто описывают так сложно, что книгу хочется закрыть навсегда. Я принципиально не использую заумные академические термины, которые только запутывают. Я раскладываю любое, даже самое тяжелое правило немецкого языка буквально на пальцах, переводю его на простой человеческий язык и объясняю на понятных жизненных примерах. Вы начнете видеть логику языка, а не просто заучивать мертвые тексты.</p>
                 </div>
                 
                 <div class="feature-box">
@@ -420,7 +429,7 @@
             
             <div class="barrier-box">
                 <h4>Страх совершить ошибку</h4>
-                <p>Боязнь перепутать артикль, неправильно построить фразу или показаться смешным заставляет людей молчать годами. Я создаю на уроках пространство абсолютной психологической безопасности, где вы полностью расслабляетесь и наконец-то начинаете говорить свободно.</p>
+                <p>Боязнь перепутать артикль, неправильно построить фразу или показаться смешным заставляет людей молчать годами. Я создаю на уроках пространство абсолютной психологической безопасности, где вы полностью расслабираетесь и наконец-то начинаете говорить свободно.</p>
             </div>
         </div>
     </section>
