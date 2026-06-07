@@ -307,18 +307,31 @@
             color: #ffcc00;
         }
 
-        /* БЛОК ОТЗЫВОВ (ВЫРАВНЕННЫЙ ПО ВЫСОТЕ И СТУКТУРЕ) */
+        /* ГОРИЗОНТАЛЬНЫЙ СЛАЙДЕР ОТЗЫВОВ (ПЕРЕНАПРАВЛЕН ВБОК) */
         .reviews-section {
             padding: 100px 0;
             background-color: #f7f7f7;
             border-bottom: 1px solid #eee;
+            overflow: hidden; /* Скрываем то, что не помещается в экран */
         }
 
-        .reviews-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
+        .slider-wrapper {
+            position: relative;
+            width: 100%;
             margin-top: 40px;
+        }
+
+        .reviews-slider {
+            display: flex;
+            gap: 25px;
+            overflow-x: auto; /* Включаем горизонтальную прокрутку */
+            scroll-snap-type: x mandatory;
+            padding-bottom: 20px;
+            scrollbar-width: none; /* Прячем стандартный некрасивый скроллбар в Firefox */
+        }
+
+        .reviews-slider::-webkit-scrollbar {
+            display: none; /* Прячем стандартный скроллбар в Chrome/Safari */
         }
 
         .review-card {
@@ -327,32 +340,28 @@
             border-radius: 6px;
             border: 1px solid #e0e0e0;
             box-shadow: 0 5px 20px rgba(0,0,0,0.02);
-            position: relative;
-            transition: all 0.3s ease;
-            width: calc(33.333% - 17px);
+            min-width: 450px; /* Фиксированная ширина карточки вбок */
+            width: 450px;
+            scroll-snap-align: start;
             display: flex;
             flex-direction: column;
+            transition: all 0.3s ease;
         }
 
-        @media (max-width: 992px) {
-            .review-card { width: calc(50% - 13px); }
-        }
         @media (max-width: 768px) {
-            .review-card { width: 100%; }
+            .review-card {
+                min-width: 290px; /* На телефонах карточки чуть уже, чтобы влезали */
+                width: 290px;
+                padding: 25px;
+            }
         }
 
         .review-card:hover {
-            transform: translateY(-3px);
             border-color: #1a1a1a;
         }
 
-        .review-card.parent-review {
-            border-top: 4px solid #ffcc00;
-        }
-
-        .review-card.adult-review {
-            border-top: 4px solid #dd1b1b;
-        }
+        .review-card.parent-review { border-top: 5px solid #ffcc00; }
+        .review-card.adult-review { border-top: 5px solid #dd1b1b; }
 
         .review-author {
             font-weight: 700;
@@ -367,7 +376,6 @@
             letter-spacing: 1px;
             font-weight: 600;
             margin-bottom: 15px;
-            display: inline-block;
         }
 
         .parent-review .review-badge { color: #b89300; }
@@ -378,8 +386,36 @@
             color: #333333;
             font-style: italic;
             text-align: justify;
-            flex-grow: 1;
         }
+
+        /* КНОПКИ УПРАВЛЕНИЯ СЛАЙДЕРОМ */
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .slider-arrow {
+            width: 50px;
+            height: 50px;
+            border-radius: 4px;
+            border: 2px solid #1a1a1a;
+            background: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .arrow-left { color: #ffcc00; border-color: #ffcc00; }
+        .arrow-left:hover { background: #ffcc00; color: #1a1a1a; }
+
+        .arrow-right { color: #dd1b1b; border-color: #dd1b1b; }
+        .arrow-right:hover { background: #dd1b1b; color: #ffffff; }
 
         /* ФИНАЛЬНЫЙ ПРИЗЫВ */
         .cta-section {
@@ -503,7 +539,7 @@
         <div class="container">
             <h2 style="text-align: center; font-size: 2.6rem; margin-bottom: 20px;">Почему мой подход действительно работает?</h2>
             <p class="method-intro">
-                Я преподаю немецкий язык <strong>более 5 лет</strong>. Но помимо лингвистики, я закончил университет психологии. Именно это сочетание позволяет мне видеть процесс обучения шире, чем просто разбор правил из учебника. Глубокое понимание людей и большой опыт помогают мне строить обучение на четырех главных принципах:
+                Я преподаю немецкий язык <strong>более 5 лет</strong>. Но помимо лингвистики, я закончил университет психологии. Именно это сочетание позволяет мне видеть процесс обучения шире, чем просто разбор правил из учебника. Глубокое понимание людей и большой опыт помогают мне строить обучение на HTML-страницах четырех главных принципах:
             </p>
             
             <div class="features-grid">
@@ -536,7 +572,7 @@
             
             <div class="barrier-box">
                 <h4>Ступор при попытке заговорить</h4>
-                <p>Знакома ситуация, когда вы всё прекрасно понимаете, но в момент ответа в голове возникает пустота, путаница и полное оцепенение? Я успешно помогаю справиться с этим...</p>
+                <p>Знакома ситуация, когда вы всё прекрасно понимаете, но в момент ответа в голове возникает пустота, путаница и полное оцепенение? Я успешно помогаю справиться с этим блоком на первых же занятиях, бережно переводя ваши пассивные знания в уверенную живую речь.</p>
             </div>
             
             <div class="barrier-box">
@@ -550,62 +586,70 @@
     <section class="reviews-section">
         <div class="container">
             <h2 style="text-align: center; font-size: 2.6rem;">Отзывы учеников и родителей</h2>
-            <div class="reviews-grid">
-                
-                <div class="review-card parent-review">
-                    <div class="review-author">Марина</div>
-                    <div class="review-badge">Отзыв мамы</div>
-                    <div class="review-text">«До Артура мы сменили две крупные онлайн-платформы. Обещали индивидуальный подход, а на деле — стандартные уроки под копирку, где сыну было откровенно скучно и он сидел для галочки. К Артуру шли с опаской, но этот человек перевернул всё. Никаких шаблонов, он сразу нашел личный контакт. Сын перестал бояться немецкого, оценки выросли до пятерки, а главное — он занимается с искренним удовольствием».</div>
-                </div>
+            
+            <div class="slider-wrapper">
+                <div class="reviews-slider" id="slider">
+                    
+                    <div class="review-card parent-review">
+                        <div class="review-author">Марина</div>
+                        <div class="review-badge">Отзыв мамы</div>
+                        <div class="review-text">«До Артура мы сменили две крупные онлайн-платформы. Обещали индивидуальный подход, а на деле — стандартные уроки под копирку, где сыну было откровенно скучно и он сидел для галочки. К Артуру шли с опаской, но этот человек перевернул всё. Никаких шаблонов, он сразу нашел личный контакт. Сын перестал бояться немецкого, оценки выросли до пятерки, а главное — он занимается с искренним удовольствием».</div>
+                    </div>
 
-                <div class="review-card parent-review">
-                    <div class="review-author">Elena</div>
-                    <div class="review-badge">Отзыв мамы</div>
-                    <div class="review-text">«Огромное спасибо за такой чуткий подход к Кате! Дочка очень стеснительная, в школе на уроках немецкого всегда молчала и замыкалась от любого строгого взгляда. Артур смог создать такую дружескую и теплую атмосферу на занятиях, что она заговорила без всякого страха. Теперь спокойно исправляет ошибки в моих немецких фразах, когда мы вместе смотрим фильмы!»</div>
-                </div>
+                    <div class="review-card parent-review">
+                        <div class="review-author">Елена</div>
+                        <div class="review-badge">Отзыв мамы</div>
+                        <div class="review-text">«Огромное спасибо за такой чуткий подход к Кате! Дочка очень стеснительная, в школе на уроках немецкого всегда молчала и замыкалась от любого строгого взгляда. Артур смог создать такую дружескую и теплую atmosphere на занятиях, что она заговорила без всякого страха. Теперь спокойно исправляет ошибки в моих немецких фразах, когда мы вместе смотрим фильмы!»</div>
+                    </div>
 
-                <div class="review-card parent-review">
-                    <div class="review-author">Ольга</div>
-                    <div class="review-badge">Отзыв мамы</div>
-                    <div class="review-text">«Артур, вы просто наш спаситель! Больше никаких слез и нервов над домашними заданиями. Ребенок наконец-то начал понимать внутреннюю логику языка, а не просто зазубривать правила ради галочки. Результат увидели очень быстро: Никита больше не закрывается в комнате, когда нужно делать домашку по немецкому. Для нашей семьи это огромная победа».</div>
-                </div>
+                    <div class="review-card parent-review">
+                        <div class="review-author">Ольга</div>
+                        <div class="review-badge">Отзыв мамы</div>
+                        <div class="review-text">«Артур, вы просто наш спаситель! Больше никаких слез и нервов над домашними заданиями. Ребенок наконец-то начал понимать внутреннюю логику языка, а не просто заучивать правила ради галочки. Результат увидели очень быстро: Никита больше не закрывается в комнате, когда нужно делать домашку по немецкому. Для нашей семьи это огромная победа».</div>
+                    </div>
 
-                <div class="review-card parent-review">
-                    <div class="review-author">Татьяна</div>
-                    <div class="review-badge">Отзыв мамы</div>
-                    <div class="review-text">«У меня двое детей, характеры абсолютно разные. Удивительно, как Артур смог к каждому найти свой личный ключ и подобрать подход. Сын стал более уверенным в речи, у дочки прошел страх перед контрольными. Индивидуальные уроки у профессионала — это лучшее решение».</div>
-                </div>
+                    <div class="review-card parent-review">
+                        <div class="review-author">Татьяна</div>
+                        <div class="review-badge">Отзыв мамы</div>
+                        <div class="review-text">«У меня двое детей, характеры абсолютно разные. Удивительно, как Артур смог к каждому найти свой личный ключ и подобрать подход. Сын стал более уверенным в речи, у дочки прошел страх перед контрольными. Индивидуальные уроки у профессионала — это лучшее решение».</div>
+                    </div>
 
-                <div class="review-card parent-review">
-                    <div class="review-author">Наталья</div>
-                    <div class="review-badge">Отзыв мамы</div>
-                    <div class="review-text">«Перед годовыми тестами у сына была полная катастрофа и каша в голове, он просто опустил руки. На курсах всем было плевать, учительница в школе только пугала плохими оценками. Артур за пару месяцев сотворил невозможное. Он не просто разложил правила по полочкам, он вселил в ребенка такую уверенность, что сын пошел на экзамен абсолютно спокойным. Сдал на максимум! Благодарны всей семьей».</div>
-                </div>
+                    <div class="review-card parent-review">
+                        <div class="review-author">Наталья</div>
+                        <div class="review-badge">Отзыв мамы</div>
+                        <div class="review-text">«Перед годовыми тестами у сына была полная катастрофа и каша в голове, он просто опустил руки. На курсах всем было плевать, учительница в школе только пугала плохими оценками. Артур за пару месяцев сотворил невозможное. Он не просто разложил правила по полочкам, он вселил в ребенка такую уверенность, что сын пошел на экзамен абсолютно спокойным. Сдал на максимум! Благодарны всей семьей».</div>
+                    </div>
 
-                <div class="review-card adult-review">
-                    <div class="review-author">Игорь</div>
-                    <div class="review-badge">Ученик (IT-специалист)</div>
-                    <div class="review-text">«Я IT-специалист, пробовал учиться на раскрученной платформе. Вроде всё понимал, но когда доходило до созвонов с немецкими коллегами в Берлине — в голове включался белый шум. Курсы эту проблему не решают. Только индивидуальная работа с Артуром помогла разбить этот барьер. Его метод снятия ступора — это мощь. Сейчас спокойно общаюсь по работе».</div>
-                </div>
+                    <div class="review-card adult-review">
+                        <div class="review-author">Игорь</div>
+                        <div class="review-badge">Ученик (IT-специалист)</div>
+                        <div class="review-text">«Я IT-специалист, пробовал учиться на раскрученной платформе. Вроде всё понимал, но когда доходило до созвонов с немецкими коллегами в Берлине — в голове включался белый шум. Курсы эту проблему не решают. Только индивидуальная работа с Артуром помогла разбить этот барьер. Его метод снятия ступора — это мощь. Сейчас спокойно общаюсь по работе».</div>
+                    </div>
 
-                <div class="review-card adult-review">
-                    <div class="review-author">Алена</div>
-                    <div class="review-badge">Ученица</div>
-                    <div class="review-text">«Я вечный перфекционист, на групповых курсах немецкого всегда молчала, потому что боялась перепутать артикли и показаться глупой. С Артуром всё по-другому. На его уроках чувствуешь себя в такой безопасности, что барьеры тают сами собой. Он раскладывает сложнейшие правила на пальцах за 10 минут, без заумной академической воды».</div>
-                </div>
+                    <div class="review-card adult-review">
+                        <div class="review-author">Алена</div>
+                        <div class="review-badge">Ученица</div>
+                        <div class="review-text">«Уроки пролетают незаметно! Очень нравится, что нет скучной академической зубрежки и мертвых таблиц. Артур объясняет сложнейшую грамматику на пальцах за 10 минут, простым языком. Страх сделать ошибку ушел полностью, барьер растаял».</div>
+                    </div>
 
-                <div class="review-card adult-review">
-                    <div class="review-author">Владимир</div>
-                    <div class="review-badge">Ученик (Предприниматель)</div>
-                    <div class="review-text">«Мне нужен был немецкий для бизнеса в Вене, причем очень срочно. Жаль потраченного времени на групповые занятия в языковых центрах — там всё слишком медленно и уныло. Артур разработал программу лично под мои задачи, ничего лишнего. Сдал экзамен с первого раза, все вложения в уроки окупились».</div>
-                </div>
+                    <div class="review-card adult-review">
+                        <div class="review-author">Владимир</div>
+                        <div class="review-badge">Ученик (Предприниматель)</div>
+                        <div class="review-text">«Мне нужен был немецкий для бизнеса в Вене, причем очень срочно. Жаль потраченного времени на групповые занятия в языковых центрах — там всё слишком медленно и уныло. Артур разработал программу лично под мои задачи, ничего лишнего. Сдал экзамен с первого раза, все вложения в уроки окупились».</div>
+                    </div>
 
-                <div class="review-card adult-review">
-                    <div class="review-author">Кристина</div>
-                    <div class="review-badge">Ученица</div>
-                    <div class="review-text">«Наконец-то я начала говорить свободно! Раньше немецкий казался мне грубым и тяжелым, но Артур показал его живую логику и красоту. Уроки пролетают незаметно, уходит усталость после работы. Поймала себя на мысли, что на приеме уже автоматически формулирую диагнозы в голове на немецком».</div>
-                </div>
+                    <div class="review-card adult-review">
+                        <div class="review-author">Кристина</div>
+                        <div class="review-badge">Ученица</div>
+                        <div class="review-text">«Наконец-то я начала говорить свободно! Раньше немецкий казался мне грубым и тяжелым, но Артур показал его живую логику и красоту. Уроки пролетают незаметно, уходит усталость после работы. Поймала себя на мысли, что на приеме уже автоматически формулирую диагнозы в голове на немецком».</div>
+                    </div>
 
+                </div>
+            </div>
+
+            <div class="slider-controls">
+                <button class="slider-arrow arrow-left" onclick="scrollSlider(-1)">←</button>
+                <button class="slider-arrow arrow-right" onclick="scrollSlider(1)">→</button>
             </div>
         </div>
     </section>
@@ -625,6 +669,17 @@
             &copy; 2026 DEUTSCH EXPERT | АРТУР | <span>SCHWARZ • ROT • GOLD</span>
         </div>
     </footer>
+
+    <script>
+        function scrollSlider(direction) {
+            const slider = document.getElementById('slider');
+            const scrollAmount = 475; // Ширина карточки (450) + расстояние (25)
+            slider.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 
 </body>
 </html>
