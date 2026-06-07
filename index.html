@@ -3,26 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Артур — Профессиональный немецкий язык</title>
+    <title>Артур — Deutsch Expert | Профессиональный немецкий</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
     <style>
-        /* Общие настройки сайта */
+        /* 1. ГЛОБАЛЬНЫЕ СТИЛИ */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: #0d0d0d; /* ТВOЙ ОБЯЗАТЕЛЬНЫЙ ФОН */
+            background-color: #0d0d0d; /* Твой обязательный фон */
             font-family: 'Montserrat', sans-serif;
             color: #e0e0e0;
-            line-height: 1.8;
-            padding: 0;
-            margin: 0;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* 2. ГЛАВНЫЙ ЭКРАН (HERO) */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+        }
+
+        .brand-label {
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            color: #0070f3;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            color: #a0a0a0;
+            max-width: 800px;
+            font-weight: 300;
+        }
+
+        .scroll-down {
+            margin-top: 50px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            color: #555;
+            text-transform: uppercase;
+        }
+
+        /* 3. БЛОК ЗНАКОМСТВА */
+        .about-section {
+            padding: 120px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+        }
+
+        .name-highlight {
+            font-size: 3rem;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .story-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            color: #b0b0b0;
+            font-weight: 300;
+            text-align: justify;
+        }
+
+        .story-text strong {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* 4. ПОДХОД И ПРЕИМУЩЕСТВА */
+        .features-section {
+            padding: 100px 0;
+            background-color: #111111;
+        }
+
+        .section-header {
+            margin-bottom: 80px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: #0d0d0d;
+            padding: 50px 40px;
+            border: 1px solid #1a1a1a;
+            transition: all 0.4s ease;
+        }
+
+        .feature-card:hover {
+            border-color: #0070f3;
+            transform: translateY(-10px);
+        }
+
+        .feature-card h3 {
+            text-align: left;
+            font-size: 1.6rem;
+            margin-bottom: 20px;
+            color: #0070f3;
+        }
+
+        .feature-card p {
+            font-size: 1rem;
+            color: #999;
+            font-weight: 300;
+        }
+
+        /* 5. БЛОК БАРЬЕРОВ */
+        .barriers-section {
+            padding: 100px 0;
+        }
+
+        .barrier-box {
+            border-left: 2px solid #0070f3;
+            padding: 40px;
+            margin-bottom: 40px;
+            background: #121212;
+        }
+
+        .barrier-box h4 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        /* 6. ЦИТАТА / ФИНАЛ */
+        .final-quote {
+            padding: 150px 0;
+            text-align: center;
+            background: linear-gradient(to bottom, #0d0d0d, #1a1a1a, #0d0d0d);
+        }
+
+        .quote-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .quote-content h2 {
+            font-style: italic;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            line-height: 1.4;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 20px 45px;
+            background-color: #0070f3;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: background 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid #1a1a1a;
+            color: #444;
+            font-size: 12px;
+            letter-spacing: 2px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand-label">Deutsch Expert</div>
+        <h1>От страха — к уверенной речи.</h1>
+        <div class="hero-subtitle">Профессиональный немецкий язык для детей и взрослых с психологическим подходом.</div>
+        <div class="scroll-down">листайте вниз</div>
+    </header>
+
+    <section class="about-section">
+        <div class="container">
+            <div class="about-grid">
+                <div class="story-image">
+                    <div style="width: 100%; height: 500px; background: #1a1a1a; border: 1px solid #333;"></div>
+                </div>
+                <div class="story-text">
+                    <h2 class="name-highlight">Меня зовут Артур.</h2>
+                    <p>Если вам кажется, что немецкий язык — это скучно, зубрежка и вечный стресс... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
+                    <p>Я отлично помню, как пытался штурмовать грамматику и спотыкался на длинных словах. Было ощущение, что я стою перед глухой стеной, которую невозможно пробить. Мне казалось, что язык дается только «избранным».</p>
+                    <p>Но именно этот опыт помог мне понять: проблема не в вас. Всё зависит от того, как вам его преподносят. Как только я перестроил подход и убрал внутреннее напряжение, барьер исчез.</p>
+                    <p>Сегодня я владею <strong>четырьмя языками</strong>, а немецкий стал моей профессией. Я сам прошел этот путь от ступора до уверенности и теперь знаю, как бережно провести по нему вас или вашего ребенка.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Почему мой подход работает?</h2>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Психология</h3>
+                    <p>Я закончил университет психологии. Это позволяет мне видеть процесс обучения глубже и находить индивидуальный ключ к каждому ученику, обходя страхи.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Живой язык</h3>
+                    <p>Никакой сухой зубрежки. Объясняю грамматику простым языком через жизненные примеры, пока материал не будет усвоен идеально.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Качество</h3>
+                    <p>Мы работаем на результат, а не на скорость. Мы не бежим по программе ради галочки, мы добиваемся полной уверенности в каждой теме.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="barriers-section">
+        <div class="container">
+            <h2 style="margin-bottom: 60px;">Мы убираем то, что вам мешает</h2>
+            
+            <div class="barrier-box">
+                <h4>Синдром «Собаки»</h4>
+                <p>Всё понимаете, но когда нужно ответить — в голове белый шум. Мы убираем этот психологический блок на первых занятиях.</p>
+            </div>
+            
+            <div class="barrier-box">
+                <h4>Страх ошибки</h4>
+                <p>Боитесь перепутать артикль и показаться глупым? Я создаю атмосферу, где вы чувствуете себя в безопасности и начинаете говорить свободно.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-quote">
+        <div class="container">
+            <div class="quote-content">
+                <h2>«Моя цель — сделать так, чтобы вы искренне влюбились в немецкий язык, начали общаться на нём легко и уверенно».</h2>
+                <a href="#" class="cta-button">Начать обучение</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            &copy; 2024 DEUTSCH EXPERT | АРТУР | ПРОФЕССИОНАЛЬНЫЙ ПОДХОД
+        </div>
+    </footer>
+
+</body>
+</html>
         }
 
         .container {
