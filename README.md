@@ -1,2 +1,170 @@
-# deutsch-expert
-От страха ошибок — к уверенной речи. Профессиональный немецкий язык для детей и взрослых с психологическим подходом
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Немецкий Эксперт | Профессиональное обучение</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Базовые настройки для премиального темного стиля */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif; /* Наш новый крутой шрифт */
+        }
+
+        body {
+            background-color: #0d1117; /* Глубокий благородный графитовый фон */
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Шапка сайта (Навигация) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 40px;
+            background-color: rgba(13, 17, 23, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            color: #ffffff;
+        }
+
+        .logo span {
+            color: #00ff66; /* Неоновый зеленый акцент */
+        }
+
+        .lang-switch {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: #8b949e;
+        }
+
+        .lang-switch span {
+            cursor: pointer;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .lang-switch span.active, .lang-switch span:hover {
+            color: #00ff66;
+        }
+
+        /* Первый главный экран (Магнит) */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 20px 0 20px;
+            position: relative;
+            background: radial-gradient(circle at center, rgba(0, 255, 102, 0.04) 0%, rgba(13, 11, 23, 0) 70%);
+        }
+
+        .badge {
+            background-color: rgba(0, 255, 102, 0.1);
+            color: #00ff66;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border: 1px solid rgba(0, 255, 102, 0.2);
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            line-height: 1.25;
+            max-width: 1000px;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+        }
+
+        /* Неоновый градиент для убойной фразы */
+        h1 span {
+            background: linear-gradient(45deg, #00ff66, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p.subtitle {
+            font-size: 1.3rem;
+            color: #8b949e;
+            max-width: 750px;
+            margin-bottom: 45px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* Светящаяся неоновая кнопка, манящая кликнуть */
+        .cta-button {
+            display: inline-block;
+            padding: 20px 40px;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0d1117;
+            background-color: #00ff66;
+            border-radius: 35px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
+            cursor: pointer;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 40px rgba(0, 255, 102, 0.8);
+            background-color: #00ff88;
+        }
+
+        /* Адаптация под мобильные телефоны */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.3rem; }
+            p.subtitle { font-size: 1.05rem; margin-bottom: 35px; }
+            .cta-button { padding: 16px 32px; font-size: 1rem; }
+            header { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Немецкий<span>.Эксперт</span></div>
+        <div class="lang-switch">
+            <span class="active">RU</span>
+            <span>UA</span>
+            <span>DE</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="badge">5 лет опыта • Высшее образование по коммуникациям</div>
+        <h1><span>От страха — к уверенной речи.</span> Профессиональный Немецкий язык для детей и взрослых с психологическим подходом.</h1>
+        <p class="subtitle">Уникальная авторская методика преодоления языкового барьера. Учимся говорить свободно, без стресса и школьного прессинга на уроках, на которые хочется возвращаться.</p>
+        <a href="#" class="cta-button">Записаться на интерактивный пробный урок</a>
+    </section>
+
+</body>
+</html>
