@@ -1,170 +1,147 @@
-<style>
-body {
-background-color: #0d0d0d;
+<!DOCTYPE html>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Немецкий Эксперт | Профессиональное обучение</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
-
+    <title>Артур — Профессиональный немецкий язык</title>
     <style>
-        /* Базовые настройки для премиального темного стиля */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif; /* Наш новый крутой шрифт */
-        }
-
         body {
-            background-color: #0d1117; /* Глубокий благородный графитовый фон */
-            color: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Шапка сайта (Навигация) */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 25px 40px;
-            background-color: rgba(13, 17, 23, 0.8);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .logo {
-            font-size: 1.3rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
-            color: #ffffff;
-        }
-
-        .logo span {
-            color: #00ff66; /* Неоновый зеленый акцент */
-        }
-
-        .lang-switch {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #8b949e;
-        }
-
-        .lang-switch span {
-            cursor: pointer;
-            margin-left: 15px;
-            transition: color 0.3s;
-        }
-
-        .lang-switch span.active, .lang-switch span:hover {
-            color: #00ff66;
-        }
-
-        /* Первый главный экран (Магнит) */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 80px 20px 0 20px;
-            position: relative;
-            background: radial-gradient(circle at center, rgba(0, 255, 102, 0.04) 0%, rgba(13, 11, 23, 0) 70%);
-        }
-
-        .badge {
-            background-color: rgba(0, 255, 102, 0.1);
-            color: #00ff66;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border: 1px solid rgba(0, 255, 102, 0.2);
-        }
-
-        h1 {
-            font-size: 3.8rem;
-            font-weight: 800;
-            line-height: 1.25;
-            max-width: 1000px;
-            margin-bottom: 25px;
-            letter-spacing: -1px;
-        }
-
-        /* Неоновый градиент для убойной фразы */
-        h1 span {
-            background: linear-gradient(45deg, #00ff66, #00ffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        p.subtitle {
-            font-size: 1.3rem;
-            color: #8b949e;
-            max-width: 750px;
-            margin-bottom: 45px;
+            background-color: #0d0d0d;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            font-weight: 400;
+            color: #e0e0e0;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-
-        /* Светящаяся неоновая кнопка, манящая кликнуть */
-        .cta-button {
-            display: inline-block;
-            padding: 20px 40px;
+        h1 {
+            color: #ffffff;
+            font-size: 2.5rem;
+            line-height: 1.2;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .subtitle {
+            font-size: 1.3rem;
+            color: #aaaaaa;
+            font-weight: 500;
+            margin-bottom: 40px;
+            border-left: 4px solid #0070f3;
+            padding-left: 15px;
+        }
+        .author-title {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        h3.section-title {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin-top: 45px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 40px;
+        }
+        li {
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-left: 30px;
+        }
+        li::before {
+            content: "•";
+            color: #0070f3;
+            font-weight: bold;
+            font-size: 1.5rem;
+            position: absolute;
+            left: 5px;
+            top: -2px;
+        }
+        li strong {
+            color: #ffffff;
             font-size: 1.15rem;
-            font-weight: 800;
-            color: #0d1117;
-            background-color: #00ff66;
-            border-radius: 35px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 25px rgba(0, 255, 102, 0.4);
-            cursor: pointer;
-            letter-spacing: 0.5px;
+            display: inline-block;
+            margin-bottom: 5px;
         }
-
-        .cta-button:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 40px rgba(0, 255, 102, 0.8);
-            background-color: #00ff88;
+        .quote-box {
+            background-color: #1a1a1a;
+            border: 1px solid #333333;
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            border-top: 4px solid #0070f3;
         }
-
-        /* Адаптация под мобильные телефоны */
-        @media (max-width: 768px) {
-            h1 { font-size: 2.3rem; }
-            p.subtitle { font-size: 1.05rem; margin-bottom: 35px; }
-            .cta-button { padding: 16px 32px; font-size: 1rem; }
-            header { padding: 20px; }
+        .quote-box p {
+            font-style: italic;
+            margin-bottom: 0;
+            color: #ffffff;
+            font-size: 1.15rem;
+            line-height: 1.7;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #333333;
+            margin: 40px 0;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">Немецкий<span>.Эксперт</span></div>
-        <div class="lang-switch">
-            <span class="active">RU</span>
-            <span>UA</span>
-            <span>DE</span>
-        </div>
-    </header>
+    <h1>От страха — к уверенной речи.</h1>
+    <div class="subtitle">Профессиональный немецкий язык для детей и взрослых с психологическим подходом.</div>
 
-    <section class="hero">
-        <div class="badge">5 лет опыта • Высшее образование по коммуникациям</div>
-        <h1><span>От страха — к уверенной речи.</span> Профессиональный Немецкий язык для детей и взрослых с психологическим подходом.</h1>
-        <p class="subtitle">Уникальная авторская методика преодоления языкового барьера. Учимся говорить свободно, без стресса и школьного прессинга на уроках, на которые хочется возвращаться.</p>
-        <a href="#" class="cta-button">Записаться на интерактивный пробный урок</a>
-    </section>
+    <hr>
+
+    <div class="author-title">Меня зовут Артур.</div>
+    
+    <p>Если вам кажется, что немецкий язык — это скучно, зубрежка и вечный стресс перед каждым занятием... я вас прекрасно понимаю. Когда-то я думал точно так же.</p>
+    
+    <p>Я отлично помню, как пытался штурмовать немецкую грамматику, путался в артиклях и спотыкался на длинных словах. Было ощущение, что я стою перед глухой стеной, которую просто невозможно пробить. Мне казалось, что язык дается только «избранным».</p>
+    
+    <p>Но именно этот опыт помог мне понять: <strong>проблема не в вас и не в сложности языка. Всё зависит только от того, как вам его преподносят.</strong> Как только я перестроил свой подход и убрал это внутреннее напряжение, барьер исчез, а язык раскрылся сам собой.</p>
+    
+    <p>Сегодня я свободно и спокойно владею четырьмя языками: <strong>русским, украинским, английским и испанским</strong>, а немецкий стал моей профессией. Я сам прошел этот путь от полного ступора до абсолютной уверенности и теперь точно знаю, как бережно провести по нему вас или вашего ребенка.</p>
+
+    <h3 class="section-title">🧠 Почему этот подход действительно работает?</h3>
+    
+    <p>Я преподаю немецкий язык <strong>более 5 лет</strong>. Но помимо лингвистики, я закончил университет психологии. Именно это сочетание позволяет мне видеть процесс обучения шире, чем просто разбор правил из учебника.</p>
+    
+    <p>Знание психологии и большой опыт помогают мне:</p>
+    
+    <ul>
+        <li>
+            <strong>🎯 Понимать особенности каждого ученика.</strong><br>
+            Я чувствую, как вам или вашему ребенку комфортнее воспринимать информацию, и адаптирую программу так, чтобы сложные правила запоминались сами собой, без зубрежки.
+        </li>
+        <li>
+            <strong>🗣️ Объяснять грамматику простым и живым языком.</strong><br>
+            Немецкая грамматика логична, если разложить её на пальцах. Я не использую сложные академические термины — я объясняю всё понятными жизненными примерами.
+        </li>
+        <li>
+            <strong>💎 Работать на качество и результат, а не на скорость.</strong><br>
+            Мы не бежим по программе ради галочки. Если какая-то тема дается тяжело, я буду подбирать новые ключи и объяснять её столько раз, сколько потребуется — до тех пор, пока материал не будет усвоен идеально.
+        </li>
+        <li>
+            <strong>🛡️ Мягко снимать языковой барьер.</strong><br>
+            Мы не просто учим слова — мы убираем сам страх сделать ошибку или показаться глупым. На занятиях всегда комфортно и безопасно.
+        </li>
+    </ul>
+
+    <div class="quote-box">
+        <p><strong>Моя цель</strong> — не заставить вас выучить параграф. Моя цель — сделать так, чтобы вы или ваш ребенок искренне влюбились в немецкий язык, начали общаться на нём легко и уверенно, и получали от этого настоящее удовольствие.</p>
+    </div>
 
 </body>
-</html>
+</html>/html>
