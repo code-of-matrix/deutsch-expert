@@ -15,18 +15,19 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #fcfaf7; /* Светлый, теплый, уютный фон */
+            background-color: #fcfaf7; /* Светлый уютный фон */
             font-family: 'Montserrat', sans-serif;
             color: #2c2c2c;
             line-height: 1.8;
-            overflow-x: hidden;
+            padding-top: 80px;
         }
 
         .container {
-            max-width: 1140px;
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 24px;
         }
@@ -36,12 +37,81 @@
             color: #1a1a1a;
         }
 
-        /* ГЛАВНЫЙ ЭКРАН (HERO) */
+        /* ЗАКРЕПЛЕННАЯ НАВЕРХУ ПАНЕЛЬ */
+        .fixed-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background-color: rgba(252, 250, 247, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(74, 63, 53, 0.08);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-btn {
+            display: inline-block;
+            padding: 12px 28px;
+            text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-about {
+            background-color: transparent;
+            color: #4a4a4a;
+            border: 1px solid #e0d9d0;
+        }
+
+        .btn-about:hover {
+            background-color: #e8dfd5;
+            color: #1a1a1a;
+        }
+
+        .btn-how {
+            background-color: transparent;
+            color: #4a4a4a;
+            border: 1px solid #e0d9d0;
+        }
+
+        .btn-how:hover {
+            background-color: #e8dfd5;
+            color: #1a1a1a;
+        }
+
+        .btn-cta {
+            background-color: #2c2c2c;
+            color: #ffffff;
+            border: 1px solid #2c2c2c;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .btn-cta:hover {
+            background-color: #bc9c6e;
+            border-color: #bc9c6e;
+            transform: translateY(-1px);
+        }
+
+        /* ГЛАВНЫЙ ЭКРАН */
         .hero {
-            padding: 140px 0 100px 0;
+            padding: 100px 0 80px 0;
             text-align: center;
             background: linear-gradient(180deg, #f3ede6 0%, #fcfaf7 100%);
-            position: relative;
         }
 
         .brand-badge {
@@ -54,200 +124,140 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             border-radius: 50px;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         h1 {
-            font-size: clamp(2.3rem, 5vw, 4.2rem);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
             line-height: 1.2;
             font-weight: 700;
             margin-bottom: 25px;
-            letter-spacing: -0.5px;
         }
 
         .hero-subtitle {
             font-size: clamp(1.1rem, 2vw, 1.4rem);
             color: #5a5a5a;
             max-width: 800px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto;
             font-weight: 400;
         }
 
-        .divider {
-            width: 60px;
-            height: 3px;
-            background-color: #c5a880; /* Благородный золотисто-бежевый акцент */
-            margin: 0 auto;
-        }
-
-        /* БЛОК ИСТОРИИ И ЗНАКОМСТВА */
-        .about {
+        /* БЛОК ИСТОРИИ (ОБО МНЕ) */
+        .about-section {
             padding: 100px 0;
         }
 
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 80px;
-            align-items: center;
-        }
-
-        @media (max-width: 992px) {
-            .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
-        }
-
-        .photo-frame {
-            width: 380px;
-            height: 380px;
-            margin: 0 auto;
-            border-radius: 50%;
-            border: 15px solid #ffffff;
-            box-shadow: 0 20px 40px rgba(74, 63, 53, 0.1);
-            background: #e8dfd5; /* Сюда идеально встанет твое круглое фото */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #8a7a6e;
-            font-weight: 500;
+        .section-scroll-anchor {
+            position: relative;
+            top: -40px;
         }
 
         .name-title {
-            font-size: 2.8rem;
-            margin-bottom: 30px;
-            text-align: left;
+            font-size: 2.6rem;
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        @media (max-width: 992px) { .name-title { text-align: center; } }
-
-        .story-p {
+        .story-text p {
             font-size: 1.15rem;
-            color: #4a4a4a;
+            color: #3d3d3d;
             margin-bottom: 25px;
             font-weight: 400;
             text-align: justify;
         }
 
-        .story-p strong {
+        .story-text strong {
             color: #1a1a1a;
             font-weight: 600;
         }
 
-        /* НАПРАВЛЕНИЯ ОБУЧЕНИЯ (КАРТОЧКИ) */
-        .programs {
+        /* ПРОГРАММЫ ОБУЧЕНИЯ */
+        .programs-section {
             padding: 100px 0;
             background-color: #f5f0e9;
         }
 
-        .section-title {
-            font-size: 2.6rem;
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .programs-grid {
+        .grid-programs {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
+            margin-top: 40px;
         }
 
-        @media (max-width: 768px) { .programs-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 768px) { .grid-programs { grid-template-columns: 1fr; } }
 
         .program-card {
             background: #ffffff;
-            padding: 50px 40px;
+            padding: 45px 40px;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .program-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(74, 63, 53, 0.08);
+            box-shadow: 0 10px 30px rgba(74, 63, 53, 0.04);
         }
 
         .program-card h3 {
-            font-size: 1.8rem;
-            color: #bc9c6e;
+            font-size: 1.6rem;
+            color: #1a1a1a;
             margin-bottom: 20px;
-            text-align: left;
-        }
-
-        .program-card p {
-            font-size: 1.05rem;
-            color: #555555;
+            border-bottom: 2px solid #bc9c6e;
+            padding-bottom: 10px;
         }
 
         /* ПОДХОД К ОБУЧЕНИЮ */
-        .why-it-works {
+        .method-section {
             padding: 100px 0;
+        }
+
+        .method-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: 0 auto 60px auto;
+            font-size: 1.2rem;
+            color: #4a4a4a;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
+            grid-template-columns: 1fr;
+            gap: 35px;
         }
 
         .feature-box {
-            padding: 40px;
+            padding: 45px;
             background: #ffffff;
             border-radius: 12px;
-            border-top: 4px solid #bc9c6e;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            border-left: 6px solid #bc9c6e;
+            box-shadow: 0 6px 25px rgba(0,0,0,0.02);
         }
 
         .feature-box h4 {
             font-size: 1.5rem;
             margin-bottom: 15px;
-            text-align: left;
+            color: #1a1a1a;
         }
 
         .feature-box p {
-            font-size: 1rem;
-            color: #5a5a5a;
+            font-size: 1.1rem;
+            color: #444444;
+            text-align: justify;
         }
 
-        /* БЛОК БАРЬЕРОВ */
-        .barriers {
-            padding: 100px 0;
-            background-color: #fdfcfb;
-        }
-
-        .barrier-item {
-            max-width: 850px;
-            margin: 0 auto 30px auto;
-            background: #ffffff;
-            padding: 35px 40px;
-            border-radius: 12px;
-            border-left: 5px solid #bc9c6e;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
-        }
-
-        .barrier-item h4 {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            text-align: left;
-        }
-
-        /* ЦИТАТА И КНОПКА */
+        /* ФИНАЛЬНАЯ ЦИТАТА И КНОПКА */
         .cta-section {
-            padding: 130px 0;
+            padding: 120px 0;
             text-align: center;
-            background: linear-gradient(180deg, #fdfcfb 0%, #f3ede6 100%);
+            background: linear-gradient(180deg, #fcfaf7 0%, #f3ede6 100%);
         }
 
         .quote-text {
             font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            font-size: clamp(1.4rem, 3vw, 2.2rem);
             color: #1a1a1a;
-            max-width: 900px;
+            max-width: 850px;
             margin: 0 auto 50px auto;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
-        .btn {
+        .main-btn {
             display: inline-block;
             padding: 22px 50px;
             background-color: #2c2c2c;
@@ -262,13 +272,12 @@
             transition: all 0.3s ease;
         }
 
-        .btn:hover {
+        .main-btn:hover {
             background-color: #bc9c6e;
             transform: translateY(-2px);
             box-shadow: 0 15px 30px rgba(188, 156, 110, 0.3);
         }
 
-        /* ПОДВАЛ */
         footer {
             padding: 40px 0;
             text-align: center;
@@ -281,100 +290,99 @@
 </head>
 <body>
 
+    <nav class="fixed-nav">
+        <ul class="nav-menu">
+            <li><a href="#about" class="nav-btn btn-about">Обо мне</a></li>
+            <li><a href="#how" class="nav-btn btn-how">Как проходит обучение?</a></li>
+            <li><a href="#cta" class="nav-btn btn-cta">Записаться на пробный урок</a></li>
+        </ul>
+    </nav>
+
     <section class="hero">
         <div class="container">
             <div class="brand-badge">Deutsch Expert</div>
             <h1>От страха — к уверенной речи.</h1>
             <div class="hero-subtitle">Профессиональный немецкий язык для детей и взрослых с психологическим подходом.</div>
-            <div class="divider"></div>
         </div>
     </section>
 
-    <section class="about">
+    <div id="about" class="section-scroll-anchor"></div>
+    <section class="about-section">
         <div class="container">
-            <div class="about-grid">
-                <div class="photo-frame">
-                    <span>[Место для фото Артура]</span>
-                </div>
-                <div class="story-text">
-                    <h2 class="name-title">Меня зовут Артур.</h2>
-                    <p class="story-p">Если вам кажется, что немецкий язык — это скучно, зубрежка и вечный стресс... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
-                    <p class="story-p">Я отлично помню, как пытался штурмовать немецкую грамматику и спотыкался на длинных словах. Было ощущение, что я стою перед глухой стеной, которую невозможно пробить. Мне казалось, что язык дается только «избранным».</p>
-                    <p class="story-p">Но именно этот опыт помог мне понять: проблема не в вас. Всё зависит от того, как вам его преподносят. Как только я перестроил подход и убрал внутреннее напряжение, барьер исчез.</p>
-                    <p class="story-p">Сегодня я свободно владею четырьмя языками, а немецкий стал моей профессией. Я сам прошел этот путь от ступора до абсолютной уверенности и теперь знаю, как бережно провести по нему вас или вашего ребенка.</p>
-                </div>
+            <h2 class="name-title">Меня зовут Артур.</h2>
+            <div class="story-text">
+                <p>Если вам кажется, что немецкий язык — это скучно, зубрежка и вечный стресс перед каждым занятием... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
+                
+                <p>Я отлично помню, как пытался штурмовать немецкую грамматику, путался в артиклях и спотыкался на длинных словах. Было ощущение, что я стою перед глухой стеной, которую просто невозможно пробить. Мне казалось, что язык дается только «избранным».</p>
+                
+                <p>Но именно этот опыт помог мне понять: <strong>проблема не в вас и не в сложности языка. Всё зависит только от того, как вам его преподносят.</strong> Как только я перестроил свой подход и убрал это внутреннее напряжение, барьер исчез, а язык раскрылся сам собой.</p>
+                
+                <p>Сегодня я свободно и спокойно владею четырьмя языками: <strong>русским, украинским, английским и испанским</strong>, а немецкий стал моей профессией. Я сам прошел этот путь от полного ступора до абсолютной уверенности и теперь точно знаю, как бережно провести по нему вас или вашего ребенка.</p>
             </div>
         </div>
     </section>
 
-    <section class="programs">
+    <section class="programs-section">
         <div class="container">
-            <h2 class="section-title">Программы обучения</h2>
-            <div class="programs-grid">
+            <h2 style="text-align: center; font-size: 2.4rem;">Программы обучения</h2>
+            <div class="grid-programs">
                 <div class="program-card">
                     <h3>Для детей и школьников</h3>
-                    <p>Помогаю бережно убрать школьный стресс, страх перед плохими оценками и строгими учителями. Ваш ребенок перестанет плакать над домашним заданием, искренне полюбит немецкий язык и начнет говорить на нем уверенно и с удовольствием.</p>
+                    <p>Профессиональный подход, направленный на бережное снятие школьного стресса. Я помогаю детям избавиться от страха перед плохими оценками, строгими учителями и сложной грамматикой. Мы убираем слезы и скуку: ваш ребенок искренне полюбит немецкий язык, начнет понимать его логику и заговорит спокойно и уверенно.</p>
                 </div>
                 <div class="program-card">
                     <h3>Для взрослых</h3>
-                    <p>Интенсивная и понятная подготовка для любых целей: переезд в Германию или Австрию, успешная сдача экзаменов, прохождение собеседований или свободное общение с коллегами без ощущения себя «чужим».</p>
+                    <p>Эффективные программы для реализации ваших конкретных целей без хаоса и унылых шаблонов. Будь то подготовка к переезду в Германию или Австрию, успешная сдача языковых экзаменов, прохождение профессиональных собеседований или адаптация в новой среде — вы получите глубокие знания и начнете общаться свободно, чувствуя себя своим среди носителей.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="why-it-works">
+    <div id="how" class="section-scroll-anchor"></div>
+    <section class="method-section">
         <div class="container">
-            <h2 class="section-title">Почему мой подход работает?</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #5a5a5a; font-size: 1.1rem; font-weight: 300;">
-                Я преподаю немецкий язык более 5 лет. Но помимо лингвистики, я закончил университет психологии. Именно это сочетание позволяет мне видеть процесс обучения шире, чем просто разбор правил из учебника.
+            <h2 style="text-align: center; font-size: 2.4rem; margin-bottom: 20px;">Почему мой подход действительно работает?</h2>
+            <p class="method-intro">
+                Я преподаю немецкий язык <strong>более 5 лет</strong>. Но помимо лингвистики, я закончил университет психологии. Именно это сочетание позволяет мне видеть процесс обучения шире, чем просто разбор правил из учебника. Знание психологии и большой опыт помогают мне строить обучение на четырех главных принципах:
             </p>
             
             <div class="features-grid">
                 <div class="feature-box">
-                    <h4>Психология</h4>
-                    <p>Знания психологии позволяют мне видеть процесс обучения глубже и находить индивидуальный ключ к каждому ученику, мягко обходя любые внутренние страхи.</p>
+                    <h4>1. Психология и понимание особенностей каждого ученика</h4>
+                    <p>Каждый человек — и ребенок, и взрослый — воспринимает мир по-разному. Благодаря психологическому образованию, я с первых минут чувствую, как именно вам или вашему ребенку комфортнее и легче воспринимать информацию. Я полностью адаптирую программу под ваш темп и склад мышления. Мы не используем чужие шаблоны, мы создаем условия, при которых сложные немецкие правила ложатся на подсознание сами собой, естественно и без унылой, изнуряющей зубрежки.</p>
                 </div>
+                
                 <div class="feature-box">
-                    <h4>Живой язык</h4>
-                    <p>Никакой сухой и унылой зубрежки. Я объясняю немецкую грамматику простым, понятным языком через жизненные примеры, пока материал не будет усвоен идеально.</p>
+                    <h4>2. Живой язык и понятная грамматика на пальцах</h4>
+                    <p>Немецкая грамматика — это не хаос, это кристально логичная система. Но в учебниках ее часто описывают так, что хочется закрыть книгу навсегда. Я категорически не использую сложные, скучные академические термины, которые только запутывают. Я раскладываю любое, даже самое тяжелое правило немецкого языка буквально на пальцах, переводя его на простой, человеческий язык и подкрепляя понятными жизненными примерами. Вы начнете видеть логику языка, а не зазубривать мертвые тексты.</p>
                 </div>
+                
                 <div class="feature-box">
-                    <h4>Качество</h4>
-                    <p>Мы работаем исключительно на результат, а не на скорость. Мы не бежим по страницам программы ради галочки — мы добиваемся полной и твердой уверенности в каждой теме.</p>
+                    <h4>3. Железное качество и работа на результат, а не на скорость</h4>
+                    <p>В моем подходе нет места спешке и гонке за галочками. Мы не бежим по страницам учебника ради того, чтобы просто сдать тему и забыть. Если какая-то тема — будь то порядок слов в предложении или управление глаголов — дается тяжело, мы останавливаемся. Я буду подбирать новые подходы, менять ракурсы и объяснять материал столько раз, сколько потребуется — до тех пор, пока материал не будет усвоен идеально, и вы не почувствуете абсолютную уверенность.</p>
+                </div>
+                
+                <div class="feature-box">
+                    <h4>4. Практика общения и мягкое снятие языкового барьера</h4>
+                    <p>Знать правила и уметь говорить — это разные вещи. Мы не просто пассивно учим слова для галочки, мы с первого же занятия выводим их в живую речь. Моя главная задача как лингво-психолога — убрать сам корень проблемы: страх сделать ошибку, показаться глупым или заговорить с кривым произношением. На моих занятиях всегда царит атмосфера абсолютного психологического комфорта и безопасности, где барьеры тают, и вы начинаете говорить свободно.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="barriers">
-        <div class="container">
-            <h2 class="section-title">Мы убираем то, что вам мешает</h2>
-            
-            <div class="barrier-item">
-                <h4>Синдром «Собаки»</h4>
-                <p>Ситуация, когда вы всё прекрасно понимаете, но когда нужно ответить — внутри возникает белый шум и ступор. Мы убираем этот психологический блок на первых же занятиях.</p>
-            </div>
-            
-            <div class="barrier-item">
-                <h4>Страх совершить ошибку</h4>
-                <p>Боитесь перепутать артикль или произношение и показаться глупым? Я создаю на уроках атмосферу абсолютной безопасности, где вы расслабляетесь и начинаете говорить свободно.</p>
-            </div>
-        </div>
-    </section>
-
+    <div id="cta" class="section-scroll-anchor"></div>
     <section class="cta-section">
         <div class="container">
             <div class="quote-text">
-                «Моя цель — сделать так, чтобы вы или ваш ребенок искренне влюбились в немецкий язык, начали общаться на нём легко и уверенно, и получали от этого настоящее удовольствие».
+                «Моя цель — не заставить вас выучить параграф. Моя цель — сделать так, чтобы вы или ваш ребенок искренне влюбились в немецкий язык, начали общаться на нём легко и уверенно, и получали от этого настоящее удовольствие».
             </div>
-            <a href="#" class="btn">Начать обучение</a>
+            <a href="#" class="main-btn">Записаться на пробный урок</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            © 2026 DEUTSCH EXPERT | АРТУР | ПРОФЕССИОНАЛЬНЫЙ ПОДХОД
+            &copy; 2026 DEUTSCH EXPERT | АРТУР | ПРОФЕССИОНАЛЬНЫЙ ПОДХОД
         </div>
     </footer>
 
