@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Артур — Deutsch Expert | Профессиональный немецкий</title>
+    <title>Артур — Deutsch Expert | Профессиональный немецкий язык</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
     
     <style>
-        /* 1. ГЛОБАЛЬНЫЕ СТИЛИ */
+        /* ГЛОБАЛЬНЫЕ НАСТРОЙКИ */
         * {
             margin: 0;
             padding: 0;
@@ -18,285 +18,363 @@
         }
 
         body {
-            background-color: #0d0d0d; /* Твой обязательный фон */
+            background-color: #fcfaf7; /* Светлый, теплый, уютный фон */
             font-family: 'Montserrat', sans-serif;
-            color: #e0e0e0;
-            line-height: 1.7;
+            color: #2c2c2c;
+            line-height: 1.8;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1100px;
+            max-width: 1140px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
-        h1, h2, h3 {
+        h1, h2, h3, h4 {
             font-family: 'Playfair Display', serif;
-            color: #ffffff;
-            text-align: center;
+            color: #1a1a1a;
         }
 
-        /* 2. ГЛАВНЫЙ ЭКРАН (HERO) */
-        header {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
+        /* ГЛАВНЫЙ ЭКРАН (HERO) */
+        .hero {
+            padding: 140px 0 100px 0;
             text-align: center;
-            background: radial-gradient(circle at center, #1a1a1a 0%, #0d0d0d 100%);
+            background: linear-gradient(180deg, #f3ede6 0%, #fcfaf7 100%);
+            position: relative;
         }
 
-        .brand-label {
-            text-transform: uppercase;
-            letter-spacing: 6px;
-            color: #0070f3;
-            font-size: 14px;
+        .brand-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #e8dfd5;
+            color: #4a3f35;
+            font-size: 13px;
             font-weight: 600;
-            margin-bottom: 20px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border-radius: 50px;
+            margin-bottom: 30px;
         }
 
         h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            line-height: 1.1;
+            font-size: clamp(2.3rem, 5vw, 4.2rem);
+            line-height: 1.2;
+            font-weight: 700;
             margin-bottom: 25px;
+            letter-spacing: -0.5px;
         }
 
         .hero-subtitle {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
-            color: #a0a0a0;
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #5a5a5a;
             max-width: 800px;
-            font-weight: 300;
+            margin: 0 auto 40px auto;
+            font-weight: 400;
         }
 
-        .scroll-down {
-            margin-top: 50px;
-            font-size: 12px;
-            letter-spacing: 2px;
-            color: #555;
-            text-transform: uppercase;
+        .divider {
+            width: 60px;
+            height: 3px;
+            background-color: #c5a880; /* Благородный золотисто-бежевый акцент */
+            margin: 0 auto;
         }
 
-        /* 3. БЛОК ЗНАКОМСТВА */
-        .about-section {
-            padding: 120px 0;
+        /* БЛОК ИСТОРИИ И ЗНАКОМСТВА */
+        .about {
+            padding: 100px 0;
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 60px;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 80px;
             align-items: center;
         }
 
-        @media (max-width: 768px) {
-            .about-grid { grid-template-columns: 1fr; }
+        @media (max-width: 992px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; text-align: center; }
         }
 
-        .name-highlight {
-            font-size: 3rem;
+        .photo-frame {
+            width: 380px;
+            height: 380px;
+            margin: 0 auto;
+            border-radius: 50%;
+            border: 15px solid #ffffff;
+            box-shadow: 0 20px 40px rgba(74, 63, 53, 0.1);
+            background: #e8dfd5; /* Сюда идеально встанет твое круглое фото */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #8a7a6e;
+            font-weight: 500;
+        }
+
+        .name-title {
+            font-size: 2.8rem;
             margin-bottom: 30px;
             text-align: left;
         }
 
-        .story-text p {
+        @media (max-width: 992px) { .name-title { text-align: center; } }
+
+        .story-p {
+            font-size: 1.15rem;
+            color: #4a4a4a;
             margin-bottom: 25px;
-            font-size: 1.1rem;
-            color: #b0b0b0;
-            font-weight: 300;
+            font-weight: 400;
             text-align: justify;
         }
 
-        .story-text strong {
-            color: #ffffff;
-            font-weight: 500;
+        .story-p strong {
+            color: #1a1a1a;
+            font-weight: 600;
         }
 
-        /* 4. ПОДХОД И ПРЕИМУЩЕСТВА */
-        .features-section {
+        /* НАПРАВЛЕНИЯ ОБУЧЕНИЯ (КАРТОЧКИ) */
+        .programs {
             padding: 100px 0;
-            background-color: #111111;
+            background-color: #f5f0e9;
         }
 
-        .section-header {
-            margin-bottom: 80px;
+        .section-title {
+            font-size: 2.6rem;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) { .programs-grid { grid-template-columns: 1fr; } }
+
+        .program-card {
+            background: #ffffff;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(74, 63, 53, 0.08);
+        }
+
+        .program-card h3 {
+            font-size: 1.8rem;
+            color: #bc9c6e;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .program-card p {
+            font-size: 1.05rem;
+            color: #555555;
+        }
+
+        /* ПОДХОД К ОБУЧЕНИЮ */
+        .why-it-works {
+            padding: 100px 0;
         }
 
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-top: 50px;
         }
 
-        .feature-card {
-            background: #0d0d0d;
-            padding: 50px 40px;
-            border: 1px solid #1a1a1a;
-            transition: all 0.4s ease;
-        }
-
-        .feature-card:hover {
-            border-color: #0070f3;
-            transform: translateY(-10px);
-        }
-
-        .feature-card h3 {
-            text-align: left;
-            font-size: 1.6rem;
-            margin-bottom: 20px;
-            color: #0070f3;
-        }
-
-        .feature-card p {
-            font-size: 1rem;
-            color: #999;
-            font-weight: 300;
-        }
-
-        /* 5. БЛОК БАРЬЕРОВ */
-        .barriers-section {
-            padding: 100px 0;
-        }
-
-        .barrier-box {
-            border-left: 2px solid #0070f3;
+        .feature-box {
             padding: 40px;
-            margin-bottom: 40px;
-            background: #121212;
+            background: #ffffff;
+            border-radius: 12px;
+            border-top: 4px solid #bc9c6e;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
         }
 
-        .barrier-box h4 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            color: #fff;
+        .feature-box h4 {
+            font-size: 1.5rem;
             margin-bottom: 15px;
+            text-align: left;
         }
 
-        /* 6. ЦИТАТА / ФИНАЛ */
-        .final-quote {
-            padding: 150px 0;
-            text-align: center;
-            background: linear-gradient(to bottom, #0d0d0d, #1a1a1a, #0d0d0d);
+        .feature-box p {
+            font-size: 1rem;
+            color: #5a5a5a;
         }
 
-        .quote-content {
+        /* БЛОК БАРЬЕРОВ */
+        .barriers {
+            padding: 100px 0;
+            background-color: #fdfcfb;
+        }
+
+        .barrier-item {
             max-width: 850px;
-            margin: 0 auto;
+            margin: 0 auto 30px auto;
+            background: #ffffff;
+            padding: 35px 40px;
+            border-radius: 12px;
+            border-left: 5px solid #bc9c6e;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.01);
         }
 
-        .quote-content h2 {
+        .barrier-item h4 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        /* ЦИТАТА И КНОПКА */
+        .cta-section {
+            padding: 130px 0;
+            text-align: center;
+            background: linear-gradient(180deg, #fdfcfb 0%, #f3ede6 100%);
+        }
+
+        .quote-text {
+            font-family: 'Playfair Display', serif;
             font-style: italic;
-            font-size: clamp(1.8rem, 4vw, 2.8rem);
-            line-height: 1.4;
-            margin-bottom: 40px;
-            font-weight: 400;
+            font-size: clamp(1.5rem, 3vw, 2.3rem);
+            color: #1a1a1a;
+            max-width: 900px;
+            margin: 0 auto 50px auto;
+            line-height: 1.5;
         }
 
-        .cta-button {
+        .btn {
             display: inline-block;
-            padding: 20px 45px;
-            background-color: #0070f3;
-            color: #fff;
+            padding: 22px 50px;
+            background-color: #2c2c2c;
+            color: #ffffff;
             text-decoration: none;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 14px;
-            transition: background 0.3s;
+            font-size: 13px;
+            border-radius: 4px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
         }
 
-        .cta-button:hover {
-            background-color: #0056b3;
+        .btn:hover {
+            background-color: #bc9c6e;
+            transform: translateY(-2px);
+            box-shadow: 0 15px 30px rgba(188, 156, 110, 0.3);
         }
 
+        /* ПОДВАЛ */
         footer {
-            padding: 50px 0;
+            padding: 40px 0;
             text-align: center;
-            border-top: 1px solid #1a1a1a;
-            color: #444;
-            font-size: 12px;
+            background-color: #2c2c2c;
+            color: #a0a0a0;
+            font-size: 11px;
             letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-label">Deutsch Expert</div>
-        <h1>От страха — к уверенной речи.</h1>
-        <div class="hero-subtitle">Профессиональный немецкий язык для детей и взрослых с психологическим подходом.</div>
-        <div class="scroll-down">листайте вниз</div>
-    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="brand-badge">Deutsch Expert</div>
+            <h1>От страха — к уверенной речи.</h1>
+            <div class="hero-subtitle">Профессиональный немецкий язык для детей и взрослых с психологическим подходом.</div>
+            <div class="divider"></div>
+        </div>
+    </section>
 
-    <section class="about-section">
+    <section class="about">
         <div class="container">
             <div class="about-grid">
-                <div class="story-image">
-                    <div style="width: 100%; height: 500px; background: #1a1a1a; border: 1px solid #333;"></div>
+                <div class="photo-frame">
+                    <span>[Место для фото Артура]</span>
                 </div>
                 <div class="story-text">
-                    <h2 class="name-highlight">Меня зовут Артур.</h2>
-                    <p>Если вам кажется, что немецкий язык — это скучно, зубрежка и вечный стресс... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
-                    <p>Я отлично помню, как пытался штурмовать грамматику и спотыкался на длинных словах. Было ощущение, что я стою перед глухой стеной, которую невозможно пробить. Мне казалось, что язык дается только «избранным».</p>
-                    <p>Но именно этот опыт помог мне понять: проблема не в вас. Всё зависит от того, как вам его преподносят. Как только я перестроил подход и убрал внутреннее напряжение, барьер исчез.</p>
-                    <p>Сегодня я владею <strong>четырьмя языками</strong>, а немецкий стал моей профессией. Я сам прошел этот путь от ступора до уверенности и теперь знаю, как бережно провести по нему вас или вашего ребенка.</p>
+                    <h2 class="name-title">Меня зовут Артур.</h2>
+                    <p class="story-p">Если вам кажется, что немецкий язык — это скучно, зубрежка и вечный стресс... я вас прекрасно понимаю. <strong>Когда-то я думал точно так же.</strong></p>
+                    <p class="story-p">Я отлично помню, как пытался штурмовать немецкую грамматику и спотыкался на длинных словах. Было ощущение, что я стою перед глухой стеной, которую невозможно пробить. Мне казалось, что язык дается только «избранным».</p>
+                    <p class="story-p">Но именно этот опыт помог мне понять: проблема не в вас. Всё зависит от того, как вам его преподносят. Как только я перестроил подход и убрал внутреннее напряжение, барьер исчез.</p>
+                    <p class="story-p">Сегодня я свободно владею четырьмя языками, а немецкий стал моей профессией. Я сам прошел этот путь от ступора до абсолютной уверенности и теперь знаю, как бережно провести по нему вас или вашего ребенка.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="features-section">
+    <section class="programs">
         <div class="container">
-            <div class="section-header">
-                <h2>Почему мой подход работает?</h2>
+            <h2 class="section-title">Программы обучения</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <h3>Для детей и школьников</h3>
+                    <p>Помогаю бережно убрать школьный стресс, страх перед плохими оценками и строгими учителями. Ваш ребенок перестанет плакать над домашним заданием, искренне полюбит немецкий язык и начнет говорить на нем уверенно и с удовольствием.</p>
+                </div>
+                <div class="program-card">
+                    <h3>Для взрослых</h3>
+                    <p>Интенсивная и понятная подготовка для любых целей: переезд в Германию или Австрию, успешная сдача экзаменов, прохождение собеседований или свободное общение с коллегами без ощущения себя «чужим».</p>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section class="why-it-works">
+        <div class="container">
+            <h2 class="section-title">Почему мой подход работает?</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto; color: #5a5a5a; font-size: 1.1rem; font-weight: 300;">
+                Я преподаю немецкий язык более 5 лет. Но помимо лингвистики, я закончил университет психологии. Именно это сочетание позволяет мне видеть процесс обучения шире, чем просто разбор правил из учебника.
+            </p>
             
             <div class="features-grid">
-                <div class="feature-card">
-                    <h3>Психология</h3>
-                    <p>Я закончил университет психологии. Это позволяет мне видеть процесс обучения глубже и находить индивидуальный ключ к каждому ученику, обходя страхи.</p>
+                <div class="feature-box">
+                    <h4>Психология</h4>
+                    <p>Знания психологии позволяют мне видеть процесс обучения глубже и находить индивидуальный ключ к каждому ученику, мягко обходя любые внутренние страхи.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Живой язык</h3>
-                    <p>Никакой сухой зубрежки. Объясняю грамматику простым языком через жизненные примеры, пока материал не будет усвоен идеально.</p>
+                <div class="feature-box">
+                    <h4>Живой язык</h4>
+                    <p>Никакой сухой и унылой зубрежки. Я объясняю немецкую грамматику простым, понятным языком через жизненные примеры, пока материал не будет усвоен идеально.</p>
                 </div>
-                <div class="feature-card">
-                    <h3>Качество</h3>
-                    <p>Мы работаем на результат, а не на скорость. Мы не бежим по программе ради галочки, мы добиваемся полной уверенности в каждой теме.</p>
+                <div class="feature-box">
+                    <h4>Качество</h4>
+                    <p>Мы работаем исключительно на результат, а не на скорость. Мы не бежим по страницам программы ради галочки — мы добиваемся полной и твердой уверенности в каждой теме.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="barriers-section">
+    <section class="barriers">
         <div class="container">
-            <h2 style="margin-bottom: 60px;">Мы убираем то, что вам мешает</h2>
+            <h2 class="section-title">Мы убираем то, что вам мешает</h2>
             
-            <div class="barrier-box">
+            <div class="barrier-item">
                 <h4>Синдром «Собаки»</h4>
-                <p>Всё понимаете, но когда нужно ответить — в голове белый шум. Мы убираем этот психологический блок на первых занятиях.</p>
+                <p>Ситуация, когда вы всё прекрасно понимаете, но когда нужно ответить — внутри возникает белый шум и ступор. Мы убираем этот психологический блок на первых же занятиях.</p>
             </div>
             
-            <div class="barrier-box">
-                <h4>Страх ошибки</h4>
-                <p>Боитесь перепутать артикль и показаться глупым? Я создаю атмосферу, где вы чувствуете себя в безопасности и начинаете говорить свободно.</p>
+            <div class="barrier-item">
+                <h4>Страх совершить ошибку</h4>
+                <p>Боитесь перепутать артикль или произношение и показаться глупым? Я создаю на уроках атмосферу абсолютной безопасности, где вы расслабляетесь и начинаете говорить свободно.</p>
             </div>
         </div>
     </section>
 
-    <section class="final-quote">
+    <section class="cta-section">
         <div class="container">
-            <div class="quote-content">
-                <h2>«Моя цель — сделать так, чтобы вы искренне влюбились в немецкий язык, начали общаться на нём легко и уверенно».</h2>
-                <a href="#" class="cta-button">Начать обучение</a>
+            <div class="quote-text">
+                «Моя цель — сделать так, чтобы вы или ваш ребенок искренне влюбились в немецкий язык, начали общаться на нём легко и уверенно, и получали от этого настоящее удовольствие».
             </div>
+            <a href="#" class="btn">Начать обучение</a>
         </div>
     </section>
 
     <footer>
         <div class="container">
-            &copy; 2024 DEUTSCH EXPERT | АРТУР | ПРОФЕССИОНАЛЬНЫЙ ПОДХОД
+            © 2026 DEUTSCH EXPERT | АРТУР | ПРОФЕССИОНАЛЬНЫЙ ПОДХОД
         </div>
     </footer>
 
