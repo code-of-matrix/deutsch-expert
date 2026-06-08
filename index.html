@@ -38,16 +38,15 @@ body {
         }
 
         /* ЗАКРЕПЛЕННАЯ НАВЕРХУ ПАНЕЛЬ */
+        /* АДАПТИВНАЯ НАВИГАЦИЯ */
         .fixed-nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            height: 80px;
+            height: 60px; /* Немного уменьшили высоту */
             background-color: rgba(26, 43, 76, 0.98);
-            backdrop-filter: blur(10px);
-            border-bottom: 4px solid #dd1b1b;
-            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+            border-bottom: 3px solid #dd1b1b;
             z-index: 9999;
             display: flex;
             align-items: center;
@@ -56,21 +55,28 @@ body {
 
         .nav-menu {
             display: flex;
-            gap: 15px;
+            gap: 5px; /* Уменьшили расстояние между кнопками для мобильных */
             list-style: none;
+            width: 100%;
+            justify-content: center;
         }
 
         .nav-btn {
-            display: inline-block;
-            padding: 10px 24px;
+            padding: 8px 10px; /* Уменьшили отступы */
+            font-size: 10px; /* Уменьшили шрифт, чтобы влезло */
+            color: #ffffff;
             text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 1px;
             text-transform: uppercase;
+            text-align: center;
+            background-color: #dd1b1b; /* Все кнопки теперь красные */
             border-radius: 4px;
-            transition: all 0.3s ease;
+        }
+
+        /* Чтобы на больших экранах кнопки были посимпатичнее */
+        @media (min-width: 600px) {
+            .nav-btn { font-size: 12px; padding: 10px 20px; }
+            .nav-menu { gap: 15px; }
         }
 
         .btn-about, .btn-how, .btn-reviews {
